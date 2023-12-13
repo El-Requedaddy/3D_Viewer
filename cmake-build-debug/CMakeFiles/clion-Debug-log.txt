@@ -1,4 +1,16 @@
-"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=conan_provider.cmake -G Ninja -S D:\3D_Viewer -B D:\3D_Viewer\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=conan_provider.cmake -S D:\3D_Viewer -B D:\3D_Viewer\cmake-build-debug
+-- The C compiler identification is GNU 13.1.0
+-- The CXX compiler identification is GNU 13.1.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/gcc.exe - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/g++.exe - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- CMake-Conan: first find_package() found. Installing dependencies with Conan
 -- CMake-Conan: Checking if a default profile exists
 C:\Users\carlo\.conan2\profiles\default
@@ -8,6 +20,10 @@ C:\Users\carlo\.conan2\profiles\default
 -- CMake-Conan: CMake compiler version=13.1.0
 -- CMake-Conan: [settings] compiler=gcc
 -- CMake-Conan: [settings] compiler.version=13
+-- Performing Test _CONAN_IS_GNU_LIBSTDCXX
+-- Performing Test _CONAN_IS_GNU_LIBSTDCXX - Success
+-- Performing Test _CONAN_GNU_LIBSTDCXX_IS_CXX11_ABI
+-- Performing Test _CONAN_GNU_LIBSTDCXX_IS_CXX11_ABI - Success
 -- CMake-Conan: Creating profile D:/3D_Viewer/cmake-build-debug/conan_host_profile
 -- CMake-Conan: Profile: 
 [settings]
@@ -116,10 +132,10 @@ minizip/1.2.13: Already installed! (15 of 17)
 assimp/5.2.2: Already installed! (16 of 17)
 glew/2.2.0: Already installed! (17 of 17)
 WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
-WARN: deprecated:     'cpp_info.names' used in: glfw/3.3.8, glew/2.2.0, bzip2/1.0.8, zlib/1.3, rapidjson/cci.20220822, openddl-parser/0.5.0, clipper/4.10.0, kuba-zip/0.2.6
-WARN: deprecated:     'cpp_info.build_modules' used in: bzip2/1.0.8, glfw/3.3.8
+WARN: deprecated:     'cpp_info.names' used in: clipper/4.10.0, bzip2/1.0.8, zlib/1.3, openddl-parser/0.5.0, kuba-zip/0.2.6, glfw/3.3.8, rapidjson/cci.20220822, glew/2.2.0
+WARN: deprecated:     'cpp_info.build_modules' used in: glfw/3.3.8, bzip2/1.0.8
 WARN: deprecated:     'env_info' used in: bzip2/1.0.8
-WARN: deprecated:     'cpp_info.filenames' used in: glfw/3.3.8, opengl/system, glew/2.2.0
+WARN: deprecated:     'cpp_info.filenames' used in: glew/2.2.0, glfw/3.3.8, opengl/system
 
 ======== Finalizing install (deploy, generators) ========
 conanfile.py: Writing generators to D:\3D_Viewer\cmake-build-debug\conan\build\Debug\generators
@@ -171,6 +187,6 @@ Install finished successfully
 -- Conan: Target declared 'stb::stb'
 -- CMake-Conan: find_package(openddlparser) found, 'conan install' already ran
 -- Conan: Target declared 'openddlparser::openddlparser'
--- Configuring done (1.8s)
+-- Configuring done (4.1s)
 -- Generating done (0.0s)
 -- Build files have been written to: D:/3D_Viewer/cmake-build-debug
