@@ -1,0 +1,12 @@
+# ninja log v5
+16	803	7241923955069308	CMakeFiles/3D_Viewer.dir/program/FileLoader.cpp.obj	dab4b68407d2b13
+12	1315	7241923960163664	CMakeFiles/3D_Viewer.dir/program/Camara.cpp.obj	f1efbda2f33ce1dd
+1	1995	7241923966921485	CMakeFiles/3D_Viewer.dir/program/main.cpp.obj	6860f6daf1f23073
+7	2325	7241923970270862	CMakeFiles/3D_Viewer.dir/program/Renderer.cpp.obj	53b7ec2f06722ce4
+804	2800	7241923975049469	CMakeFiles/3D_Viewer.dir/program/ShaderHandler.cpp.obj	43e4df11b61ba2fb
+1318	2874	7241923975767548	CMakeFiles/3D_Viewer.dir/program/Modelos.cpp.obj	282c1f0c90bc22e8
+2325	3013	7241923977164116	CMakeFiles/3D_Viewer.dir/program/MallaModelo.cpp.obj	4b0d38e2c322f159
+1995	3198	7241923978989229	CMakeFiles/3D_Viewer.dir/program/GestorModelos.cpp.obj	facae6d95d259e36
+2801	3463	7241923981672059	CMakeFiles/3D_Viewer.dir/program/Luz.cpp.obj	5f8eb7b2db51643e
+2874	3797	7241923985003142	CMakeFiles/3D_Viewer.dir/program/lodepng.cpp.obj	bb3a67f83c04f1f9
+3797	112345	7241925070040006	3D_Viewer.exe	50f16e7e49eb68bf

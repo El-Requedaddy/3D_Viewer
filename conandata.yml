@@ -1,0 +1,9 @@
+# This file is managed by Conan, contents will be overwritten.
+# To keep your changes, remove these comment lines, but the plugin won't be able to modify your requirements
+
+requirements:
+  - "glfw/3.3.8"
+  - "glew/2.2.0"
+  - "glm/cci.20230113"
+  - "opengl/system"
+  - "assimp/5.2.2"
