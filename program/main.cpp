@@ -3,6 +3,9 @@
 // IMPORTANTE: El include de GLEW debe estar siempre ANTES de el de GLFW
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
+#include <imgui.h>
+#include "Interfaz/imgui_impl_glfw.h"
+#include "Interfaz/imgui_impl_opengl3.h"
 #include "Renderer.h"
 #include "Luz.h"
 
@@ -13,6 +16,9 @@ float verde = 0;
 float rgb[3] = {rojo, azul, verde};
 float velocidadRaton = 3.0f;
 bool clickIzquierdoMantenido = false;
+bool popupLuzPuntualAbierto = false;
+bool popupLuzDireccionalAbierto = false;
+bool popupAnadirModelo = false;
 
 // - Esta función callback será llamada cada vez que el área de dibujo
 // OpenGL deba ser redibujada.
@@ -87,16 +93,6 @@ void key_callback ( GLFWwindow *window, int key, int scancode, int action, int m
     if (key == GLFW_KEY_E && action == GLFW_PRESS) {
         // Con la tecla E ponemos modo de alambre en la visualización
         PAG::Renderer::GetInstancia()->setTipoRenderizadoAlambre();
-    }
-
-    // Cambio de color de modelos
-    if (key == GLFW_KEY_T && action == GLFW_PRESS) {
-        // Con la tecla T ponemos modo de color de textura en la visualización
-        PAG::Renderer::GetInstancia()->setTipoCalculoColorTextura();
-    }
-    if (key == GLFW_KEY_Y && action == GLFW_PRESS) {
-        // Con la tecla Y ponemos modo de color de material en la visualización
-        PAG::Renderer::GetInstancia()->setTipoCalculoColorMaterial();
     }
 
 }
@@ -177,6 +173,145 @@ void framebufferSizeCallback(GLFWwindow* window, int width, int height) {
     PAG::Renderer::GetInstancia()->setAlturaPantalla(height);
 }
 
+void renderizarInterfaz() {
+    // Iniciar un nuevo frame de ImGui
+    ImGui_ImplOpenGL3_NewFrame();
+    ImGui_ImplGlfw_NewFrame();
+    ImGui::NewFrame();
+
+    // Crear tu interfaz gráfica aquí, por ejemplo, un menú desplegable
+    ImGui::SetNextWindowSize(ImVec2(400,100));
+    if (ImGui::Begin("Menú Principal")) {
+        if (ImGui::BeginMenu("Añadir")) {
+            if (ImGui::MenuItem("Añadir luz puntual")) {
+                popupLuzPuntualAbierto = true;
+            }
+            if (ImGui::MenuItem("Añadir luz direccional")) {
+                popupLuzDireccionalAbierto = true;
+            }
+            if (ImGui::MenuItem("Añadir Modelo")) {
+                popupAnadirModelo = true;
+            }
+            ImGui::EndMenu();
+        }
+        if (ImGui::BeginMenu("Cambiar color modelos")) {
+            if (ImGui::MenuItem("Textura")) {
+                PAG::Renderer::GetInstancia()->setTipoCalculoColorTextura();
+            }
+            if (ImGui::MenuItem("Material")) {
+                PAG::Renderer::GetInstancia()->setTipoCalculoColorMaterial();
+            }
+            ImGui::EndMenu();
+        }
+        ImGui::End();
+
+        if (popupAnadirModelo) {
+            ImGui::SetNextWindowSize(ImVec2(408, 199));
+            if (ImGui::Begin("Añadir Modelo")) {
+                static glm::vec3 posicion;
+                static glm::vec3 escalado;
+                static char path[256] = "";
+                static char rutaTextura[256] = "";
+
+                ImGui::InputFloat3("Posición", glm::value_ptr(posicion));
+                ImGui::InputFloat3("Escalado", glm::value_ptr(escalado));
+                ImGui::InputText("Nombre de modelo", path, sizeof(path));
+                ImGui::InputText("Nombre de textura", rutaTextura, sizeof(rutaTextura));
+
+                if (ImGui::Button("Crear")) {
+                    std::string modelo = path;
+                    modelo = "Modelos/" + modelo + ".obj";
+                    std::string textura = rutaTextura;
+                    glm::mat4 matrizModelado = glm::translate(glm::mat4(1.0f), posicion);
+                    matrizModelado = glm::scale(matrizModelado, escalado);
+                    PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, "Texturas/" + textura + ".png");
+                    popupAnadirModelo = false;
+                }
+
+                if (ImGui::Button("Cancelar")) {
+                    popupAnadirModelo = false;
+                }
+            }
+            ImGui::End();
+        }
+
+        if (popupLuzPuntualAbierto) {
+            ImGui::SetNextWindowSize(ImVec2(408,199));
+            if (ImGui::Begin("Añadir Luz Puntual")) {
+                static glm::vec3 colorDifuso;
+                static glm::vec3 colorEspecular;
+                static glm::vec3 posicion;
+
+                ImGui::ColorEdit3("Color Difuso", glm::value_ptr(colorDifuso));
+                ImGui::ColorEdit3("Color Especular", glm::value_ptr(colorEspecular));
+                ImGui::InputFloat3("Posición", glm::value_ptr(posicion));
+
+                if (ImGui::Button("Crear")) {
+                    PAG::Renderer::GetInstancia()->crearLuzPuntual(colorDifuso, colorEspecular, posicion);
+                    popupLuzPuntualAbierto = false;
+                }
+
+                if (ImGui::Button("Cancelar")) {
+                    popupLuzPuntualAbierto = false;
+                }
+
+            }
+            ImGui::End();
+        }
+
+        if (popupLuzDireccionalAbierto) {
+            ImGui::SetNextWindowSize(ImVec2(408,199));
+            if (ImGui::Begin("Añadir Luz Direccional")) {
+                static glm::vec3 colorDifuso;
+                static glm::vec3 colorEspecular;
+                static glm::vec3 direccion;
+
+                ImGui::ColorEdit3("Color Difuso", glm::value_ptr(colorDifuso));
+                ImGui::ColorEdit3("Color Especular", glm::value_ptr(colorEspecular));
+                ImGui::InputFloat3("Dirección", glm::value_ptr(direccion));
+
+                if (ImGui::Button("Crear")) {
+                    PAG::Renderer::GetInstancia()->crearluzDireccional(colorDifuso, colorEspecular, direccion);
+                    popupLuzDireccionalAbierto = false;
+                }
+
+                if (ImGui::Button("Cancelar")) {
+                    popupLuzDireccionalAbierto = false;
+                }
+
+            }
+            ImGui::End();
+        }
+
+    }
+
+    // Renderizar la interfaz de ImGui
+    ImGui::Render();
+    ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+
+}
+
+void setearInterfaz(GLFWwindow* window) {
+    // Inicializar ImGui
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    // Inicializar ImGui para OpenGL
+    ImGui_ImplGlfw_InitForOpenGL(window, true);
+    ImGui_ImplOpenGL3_Init("#version 410");
+    ImGui::StyleColorsDark();
+
+    // Establecer estilo de ImGui si es necesario
+}
+
+
+void limpiarInterfazGrafica() {
+    // Limpiar recursos de ImGui
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+}
+
 int main() {
 
     std::cout << "Starting Application PAG - Prueba 01" << std::endl;
@@ -245,20 +380,14 @@ int main() {
 
     // Inicializamos los shaders y las luces. Este método inicializa una luz y asigna un shader correspondiente.
     PAG::TipoLuz tipoLuz = PAG::TipoLuz::AMBIENTE;
-    PAG::Luz* luzAmbiental = new PAG::Luz(tipoLuz, glm::vec3(0.2, 0.2, 0.2));
+    PAG::Luz* luzAmbiental = new PAG::Luz(tipoLuz, glm::vec3(0.8, 0.8, 0.8));
     PAG::Renderer::GetInstancia()->anadirLuces(luzAmbiental);
 
-    PAG::TipoLuz tipoLuz2 = PAG::TipoLuz::PUNTUAL;
-    PAG::Luz* luzPuntual = new PAG::Luz(tipoLuz2, glm::vec3(0.8, 0.6, 1.0), glm::vec3(1.0, 0.6, 1.0), glm::vec3(0.0, 3.0, 0.0));
-    PAG::Renderer::GetInstancia()->anadirLuces(luzPuntual);
-
-    PAG::Luz* luzPuntual2 = new PAG::Luz(tipoLuz2, glm::vec3(1.0, 1.0, 1.0), glm::vec3(1.0, 1.0, 1.0), glm::vec3(5.0, 2.0, 5.0));
-    PAG::Renderer::GetInstancia()->anadirLuces(luzPuntual2);
-    //PAG::Renderer::GetInstancia()->inicializacionShadersYLuces("pag03-fs-puntualLightShader.glsl.txt");
-
+    /*
     PAG::TipoLuz tipoLuz3 = PAG::TipoLuz::DIRECCIONAL;
     PAG::Luz* luzDireccional = new PAG::Luz(tipoLuz3, glm::vec3(0.4, 0.6, 0.7), glm::vec3(1.0, 0.6, 0.5), glm::vec3(5.0, 5.0, 4.0), glm::vec3(5.0, 5.0, 4.0));
     PAG::Renderer::GetInstancia()->anadirLuces(luzDireccional);
+    */
 
     // Inicializamos e indicamos las subrutinas a usar
     PAG::Renderer::GetInstancia()->actualizarSubrutinasShaders();
@@ -266,17 +395,7 @@ int main() {
     // Creamos la cámara
     PAG::Renderer::GetInstancia()->seteoCamara();
 
-//    char *path = "Modelos/AnimeModelo.obj";
-    glm::mat4 matrizModelado = glm::translate(glm::mat4(1.0f), glm::vec3(-1.0f, 0.0f, 0.0f));
-    //   matrizModelado = glm::scale(matrizModelado, glm::vec3(0.01f));
-//    PAG::Renderer::GetInstancia()->crearModelo(path, matrizModelado);
-
     /*
-    std::string path2 = "Modelos/Mandalorian.obj";
-    matrizModelado = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
-    PAG::Renderer::GetInstancia()->crearModelo(path2.c_str(), matrizModelado, "");
-    */
-
     std::string path3 = "Modelos/dado.obj";
     matrizModelado = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, 0.0f, 1.0f));
     PAG::Renderer::GetInstancia()->crearModelo(path3.c_str(), matrizModelado, "Texturas/dado.png");
@@ -285,18 +404,10 @@ int main() {
     matrizModelado = glm::translate(glm::mat4(1.0f), glm::vec3(1.0f, 0.0f, 0.0f));
     matrizModelado = glm::scale(matrizModelado, glm::vec3(0.95f));
     PAG::Renderer::GetInstancia()->crearModelo(path4.c_str(), matrizModelado, "Texturas/spot_texture.png");
+     */
 
-      /*
-    std::string path6 = "Modelos/NeonSushi.obj";
-    matrizModelado = glm::translate(glm::mat4(1.0f), glm::vec3(-3.0f, 0.0f, -1.0f));
-    matrizModelado = glm::scale(matrizModelado, glm::vec3(0.01f));
-    PAG::Renderer::GetInstancia()->crearModelo(path6.c_str(), matrizModelado, "");
-
-    std::string path7 = "Modelos/SAOModel.obj";
-    matrizModelado = glm::translate(glm::mat4(1.0f), glm::vec3(0.0f, -1.0f, 0.0f));
-    matrizModelado = glm::scale(matrizModelado, glm::vec3(0.008f));
-    PAG::Renderer::GetInstancia()->crearModelo(path7.c_str(), matrizModelado, "");
-    */
+     // Iniciamos la interfaz
+    setearInterfaz(window);
 
     // - Ciclo de eventos de la aplicación. La condición de parada es que la
     // ventana principal deba cerrarse. Por ejemplo, si el usuario pulsa el
@@ -308,6 +419,7 @@ int main() {
 
         PAG::Renderer::GetInstancia()->Refrescar();
         //PAG::Renderer::GetInstancia()->renderizarModelos();
+        renderizarInterfaz();
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
@@ -315,6 +427,7 @@ int main() {
     // - Una vez terminado el ciclo de eventos, liberar recursos, etc.
     std::cout << " 「pag prueba」の仕組み終了　" << std::endl;
 
+    limpiarInterfazGrafica();
     glfwDestroyWindow ( window ); // - Cerramos y destruimos la ventana de la aplicación.
     window = nullptr;
     glfwTerminate (); // - Liberamos los recursos que ocupaba GLFW.

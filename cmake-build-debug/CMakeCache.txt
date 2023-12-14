@@ -248,6 +248,9 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 //Path to a program.
 CMAKE_STRIP:FILEPATH=C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/strip.exe
 
+//Path to a program.
+CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
+
 //If this value is on, makefiles will be generated without the
 // .SILENT directive, and all commands will be echoed to the console
 // during the make.  This is useful for debugging only. With Visual
@@ -262,12 +265,6 @@ CONAN_COMMAND:FILEPATH=C:/Program Files/Conan/conan/conan.exe
 
 //Conan host profile
 CONAN_HOST_PROFILE:STRING=default;auto-cmake
-
-//Enable to build 7-Zip source packages
-CPACK_SOURCE_7Z:BOOL=ON
-
-//Enable to build ZIP source packages
-CPACK_SOURCE_ZIP:BOOL=ON
 
 //The directory containing a CMake configuration file for RapidJSON.
 RapidJSON_DIR:PATH=D:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators
@@ -295,6 +292,9 @@ glm_DIR:PATH=D:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators
 
 //The directory containing a CMake configuration file for glu.
 glu_DIR:PATH=D:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators
+
+//The directory containing a CMake configuration file for imgui.
+imgui_DIR:PATH=D:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators
 
 //The directory containing a CMake configuration file for minizip.
 minizip_DIR:PATH=D:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators
@@ -331,9 +331,9 @@ CMAKE_CACHEFILE_DIR:INTERNAL=d:/3D_Viewer/cmake-build-debug
 //Major version of cmake used to create the current loaded cache
 CMAKE_CACHE_MAJOR_VERSION:INTERNAL=3
 //Minor version of cmake used to create the current loaded cache
-CMAKE_CACHE_MINOR_VERSION:INTERNAL=26
+CMAKE_CACHE_MINOR_VERSION:INTERNAL=27
 //Patch version of cmake used to create the current loaded cache
-CMAKE_CACHE_PATCH_VERSION:INTERNAL=4
+CMAKE_CACHE_PATCH_VERSION:INTERNAL=0
 //Path to CMake executable.
 CMAKE_COMMAND:INTERNAL=C:/Program Files/JetBrains/CLion 2023.2.1/bin/cmake/win/x64/bin/cmake.exe
 //Path to cpack program executable.
@@ -445,7 +445,7 @@ CMAKE_RC_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_READELF
 CMAKE_READELF-ADVANCED:INTERNAL=1
 //Path to CMake installation.
-CMAKE_ROOT:INTERNAL=C:/Program Files/JetBrains/CLion 2023.2.1/bin/cmake/win/x64/share/cmake-3.26
+CMAKE_ROOT:INTERNAL=C:/Program Files/JetBrains/CLion 2023.2.1/bin/cmake/win/x64/share/cmake-3.27
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS
 CMAKE_SHARED_LINKER_FLAGS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_SHARED_LINKER_FLAGS_DEBUG
@@ -472,12 +472,10 @@ CMAKE_STATIC_LINKER_FLAGS_RELEASE-ADVANCED:INTERNAL=1
 CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_STRIP
 CMAKE_STRIP-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: CMAKE_TAPI
+CMAKE_TAPI-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_SOURCE_7Z
-CPACK_SOURCE_7Z-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: CPACK_SOURCE_ZIP
-CPACK_SOURCE_ZIP-ADVANCED:INTERNAL=1
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 //Test _CONAN_GNU_LIBSTDCXX_IS_CXX11_ABI

@@ -29,7 +29,14 @@ add_executable(3D_Viewer program/main.cpp
         program/EstructurasLuces.h
         program/lodepng.cpp
         program/lodepng.h
+        program/Interfaz/imgui_impl_glfw.cpp
+        program/Interfaz/imgui_impl_glfw.h
+        program/Interfaz/imgui_impl_opengl3.cpp
+        program/Interfaz/imgui_impl_opengl3.h
+        program/Interfaz/imgui_impl_opengl3_loader.h
 )
+
+set(BUILD_SHARED_LIBS ON)
 
 find_package(glfw3)
 target_link_libraries(3D_Viewer glfw)
@@ -46,10 +53,13 @@ target_link_libraries(3D_Viewer opengl::opengl)
 find_package(assimp)
 target_link_libraries(3D_Viewer assimp::assimp)
 
-include(InstallRequiredSystemLibraries)
-set(CPACK_PACKAGE_NAME "3D_Viewer")
-set(CPACK_PROJECT_VERSION_MAJOR ${3D_Viewer_VERSION_MAJOR})
-set(CPACK_PROJECT_VERSION_MINOR ${3D_Viewer_VERSION_MINOR})
-set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
-set(CPACK_GENERATOR "ZIP")
-include(CPack)
+find_package(imgui)
+target_link_libraries(3D_Viewer imgui::imgui)
+
+#include(InstallRequiredSystemLibraries)
+#set(CPACK_PACKAGE_NAME "3D_Viewer")
+#set(CPACK_PROJECT_VERSION_MAJOR ${3D_Viewer_VERSION_MAJOR})
+#set(CPACK_PROJECT_VERSION_MINOR ${3D_Viewer_VERSION_MINOR})
+#set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
+#set(CPACK_GENERATOR "ZIP")
+#include(CPack)

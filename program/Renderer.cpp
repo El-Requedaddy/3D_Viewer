@@ -467,3 +467,16 @@ void PAG::Renderer::inicializarShaders() {
     shaderDireccional = new ShaderHandler();
     shaderDireccional->creaShaderProgram("pag03-vs.glsl", "pag03-fs-directionalLightShader.glsl");
 }
+
+void PAG::Renderer::crearLuzPuntual(glm::vec3 colorDifuso, glm::vec3 colorEspecular, glm::vec3 posicion) {
+    PAG::TipoLuz tipoLuz2 = PAG::TipoLuz::PUNTUAL;
+    PAG::Luz* luzPuntual = new PAG::Luz(tipoLuz2, colorDifuso, colorEspecular, posicion);
+    lucesEscena.push_back(luzPuntual);
+}
+
+void PAG::Renderer::crearluzDireccional(glm::vec3 colorDifuso, glm::vec3 colorEspecular, glm::vec3 direccion) {
+    PAG::TipoLuz tipoLuz3 = PAG::TipoLuz::DIRECCIONAL;
+    PAG::Luz* luzDireccional = new PAG::Luz(tipoLuz3, colorDifuso,
+                                            colorEspecular, glm::vec3(5.0, 5.0, 4.0), direccion);
+    lucesEscena.push_back(luzDireccional);
+}

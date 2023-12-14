@@ -103,6 +103,10 @@ namespace PAG {
             void activarTextura(GLuint idTextura, GLuint idSP);
             void desactivarTextura(GLuint idTextura, GLuint idSP);
             void actualizarSubrutinasShaders();
+
+            // Añadir luces
+            void crearLuzPuntual(glm::vec3 colorDifuso, glm::vec3 colorEspecular, glm::vec3 posicion);
+            void crearluzDireccional(glm::vec3 colorDifuso, glm::vec3 colorEspecular, glm::vec3 direccion);
     };
 
 }

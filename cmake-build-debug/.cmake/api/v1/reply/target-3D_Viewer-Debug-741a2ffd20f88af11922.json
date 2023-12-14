@@ -33,7 +33,7 @@
 			"cmake-build-debug/conan/build/Debug/generators/opengl_system-Target-debug.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/opengl_systemTargets.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/opengl_system-config.cmake",
-			"C:/Program Files/JetBrains/CLion 2023.2.1/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Program Files/JetBrains/CLion 2023.2.1/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/glu-Target-debug.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/gluTargets.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/glu-config.cmake",
@@ -66,7 +66,10 @@
 			"cmake-build-debug/conan/build/Debug/generators/clipper-config.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/openddlparser-Target-debug.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/openddlparserTargets.cmake",
-			"cmake-build-debug/conan/build/Debug/generators/openddlparser-config.cmake"
+			"cmake-build-debug/conan/build/Debug/generators/openddlparser-config.cmake",
+			"cmake-build-debug/conan/build/Debug/generators/imgui-Target-debug.cmake",
+			"cmake-build-debug/conan/build/Debug/generators/imguiTargets.cmake",
+			"cmake-build-debug/conan/build/Debug/generators/imgui-config.cmake"
 		],
 		"nodes" : 
 		[
@@ -82,691 +85,745 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 35,
+				"line" : 42,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 38,
+				"line" : 45,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 47,
+				"line" : 54,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 57,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 34,
+				"line" : 41,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 5
+				"parent" : 6
 			},
 			{
 				"file" : 3,
-				"parent" : 6
+				"parent" : 7
 			},
 			{
 				"command" : 3,
 				"file" : 3,
 				"line" : 16,
-				"parent" : 7
+				"parent" : 8
 			},
 			{
 				"file" : 2,
-				"parent" : 8
+				"parent" : 9
 			},
 			{
 				"command" : 3,
 				"file" : 2,
 				"line" : 26,
-				"parent" : 9
+				"parent" : 10
 			},
 			{
 				"file" : 1,
-				"parent" : 10
+				"parent" : 11
 			},
 			{
 				"command" : 2,
 				"file" : 1,
 				"line" : 39,
-				"parent" : 11
+				"parent" : 12
 			},
 			{
 				"command" : 2,
 				"file" : 1,
 				"line" : 15,
-				"parent" : 11
+				"parent" : 12
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 37,
+				"line" : 44,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 14
+				"parent" : 15
 			},
 			{
 				"file" : 7,
-				"parent" : 15
+				"parent" : 16
 			},
 			{
 				"command" : 3,
 				"file" : 7,
 				"line" : 16,
-				"parent" : 16
+				"parent" : 17
 			},
 			{
 				"file" : 6,
-				"parent" : 17
+				"parent" : 18
 			},
 			{
 				"command" : 3,
 				"file" : 6,
 				"line" : 26,
-				"parent" : 18
+				"parent" : 19
 			},
 			{
 				"file" : 5,
-				"parent" : 19
+				"parent" : 20
 			},
 			{
 				"command" : 2,
 				"file" : 5,
 				"line" : 74,
-				"parent" : 20
+				"parent" : 21
 			},
 			{
 				"command" : 5,
 				"file" : 3,
 				"line" : 24,
-				"parent" : 7
+				"parent" : 8
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 22
+				"parent" : 23
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 23
+				"parent" : 24
 			},
 			{
 				"file" : 10,
-				"parent" : 24
+				"parent" : 25
 			},
 			{
 				"command" : 3,
 				"file" : 10,
 				"line" : 16,
-				"parent" : 25
+				"parent" : 26
 			},
 			{
 				"file" : 9,
-				"parent" : 26
+				"parent" : 27
 			},
 			{
 				"command" : 3,
 				"file" : 9,
 				"line" : 26,
-				"parent" : 27
+				"parent" : 28
 			},
 			{
 				"file" : 8,
-				"parent" : 28
+				"parent" : 29
 			},
 			{
 				"command" : 2,
 				"file" : 8,
 				"line" : 15,
-				"parent" : 29
+				"parent" : 30
 			},
 			{
 				"command" : 5,
 				"file" : 7,
 				"line" : 24,
-				"parent" : 16
+				"parent" : 17
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 31
+				"parent" : 32
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 32
+				"parent" : 33
 			},
 			{
 				"file" : 14,
-				"parent" : 33
+				"parent" : 34
 			},
 			{
 				"command" : 3,
 				"file" : 14,
 				"line" : 16,
-				"parent" : 34
+				"parent" : 35
 			},
 			{
 				"file" : 13,
-				"parent" : 35
+				"parent" : 36
 			},
 			{
 				"command" : 3,
 				"file" : 13,
 				"line" : 26,
-				"parent" : 36
+				"parent" : 37
 			},
 			{
 				"file" : 12,
-				"parent" : 37
+				"parent" : 38
 			},
 			{
 				"command" : 2,
 				"file" : 12,
 				"line" : 15,
-				"parent" : 38
+				"parent" : 39
 			},
 			{
 				"command" : 4,
 				"file" : 0,
-				"line" : 46,
+				"line" : 53,
 				"parent" : 0
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 40
+				"parent" : 41
 			},
 			{
 				"file" : 17,
-				"parent" : 41
+				"parent" : 42
 			},
 			{
 				"command" : 3,
 				"file" : 17,
 				"line" : 16,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"file" : 16,
-				"parent" : 43
+				"parent" : 44
 			},
 			{
 				"command" : 3,
 				"file" : 16,
 				"line" : 26,
-				"parent" : 44
+				"parent" : 45
 			},
 			{
 				"file" : 15,
-				"parent" : 45
+				"parent" : 46
 			},
 			{
 				"command" : 2,
 				"file" : 15,
 				"line" : 39,
-				"parent" : 46
+				"parent" : 47
 			},
 			{
 				"command" : 2,
 				"file" : 15,
 				"line" : 15,
-				"parent" : 46
+				"parent" : 47
 			},
 			{
 				"command" : 5,
 				"file" : 17,
 				"line" : 24,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 49
-			},
-			{
-				"command" : 4,
-				"file" : 4,
-				"line" : 551,
 				"parent" : 50
 			},
 			{
-				"file" : 20,
+				"command" : 4,
+				"file" : 4,
+				"line" : 551,
 				"parent" : 51
+			},
+			{
+				"file" : 20,
+				"parent" : 52
 			},
 			{
 				"command" : 3,
 				"file" : 20,
 				"line" : 16,
-				"parent" : 52
+				"parent" : 53
 			},
 			{
 				"file" : 19,
-				"parent" : 53
+				"parent" : 54
 			},
 			{
 				"command" : 3,
 				"file" : 19,
 				"line" : 26,
-				"parent" : 54
+				"parent" : 55
 			},
 			{
 				"file" : 18,
-				"parent" : 55
+				"parent" : 56
 			},
 			{
 				"command" : 2,
 				"file" : 18,
 				"line" : 39,
-				"parent" : 56
+				"parent" : 57
 			},
 			{
 				"command" : 5,
 				"file" : 20,
 				"line" : 24,
-				"parent" : 52
+				"parent" : 53
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 58
+				"parent" : 59
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 59
+				"parent" : 60
 			},
 			{
 				"file" : 23,
-				"parent" : 60
+				"parent" : 61
 			},
 			{
 				"command" : 3,
 				"file" : 23,
 				"line" : 16,
-				"parent" : 61
+				"parent" : 62
 			},
 			{
 				"file" : 22,
-				"parent" : 62
+				"parent" : 63
 			},
 			{
 				"command" : 3,
 				"file" : 22,
 				"line" : 26,
-				"parent" : 63
+				"parent" : 64
 			},
 			{
 				"file" : 21,
-				"parent" : 64
+				"parent" : 65
 			},
 			{
 				"command" : 2,
 				"file" : 21,
 				"line" : 39,
-				"parent" : 65
+				"parent" : 66
 			},
 			{
 				"command" : 5,
 				"file" : 17,
 				"line" : 24,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 67
+				"parent" : 68
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 68
+				"parent" : 69
 			},
 			{
 				"file" : 26,
-				"parent" : 69
+				"parent" : 70
 			},
 			{
 				"command" : 3,
 				"file" : 26,
 				"line" : 16,
-				"parent" : 70
+				"parent" : 71
 			},
 			{
 				"file" : 25,
-				"parent" : 71
+				"parent" : 72
 			},
 			{
 				"command" : 3,
 				"file" : 25,
 				"line" : 32,
-				"parent" : 72
-			},
-			{
-				"file" : 24,
 				"parent" : 73
 			},
 			{
-				"command" : 2,
 				"file" : 24,
-				"line" : 39,
 				"parent" : 74
 			},
 			{
+				"command" : 2,
+				"file" : 24,
+				"line" : 39,
+				"parent" : 75
+			},
+			{
 				"command" : 5,
 				"file" : 17,
 				"line" : 24,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 76
-			},
-			{
-				"command" : 4,
-				"file" : 4,
-				"line" : 551,
 				"parent" : 77
 			},
 			{
-				"file" : 29,
+				"command" : 4,
+				"file" : 4,
+				"line" : 551,
 				"parent" : 78
+			},
+			{
+				"file" : 29,
+				"parent" : 79
 			},
 			{
 				"command" : 3,
 				"file" : 29,
 				"line" : 16,
-				"parent" : 79
+				"parent" : 80
 			},
 			{
 				"file" : 28,
-				"parent" : 80
+				"parent" : 81
 			},
 			{
 				"command" : 3,
 				"file" : 28,
 				"line" : 26,
-				"parent" : 81
+				"parent" : 82
 			},
 			{
 				"file" : 27,
-				"parent" : 82
+				"parent" : 83
 			},
 			{
 				"command" : 2,
 				"file" : 27,
 				"line" : 39,
-				"parent" : 83
+				"parent" : 84
 			},
 			{
 				"command" : 5,
 				"file" : 17,
 				"line" : 24,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 85
+				"parent" : 86
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 86
+				"parent" : 87
 			},
 			{
 				"file" : 32,
-				"parent" : 87
+				"parent" : 88
 			},
 			{
 				"command" : 3,
 				"file" : 32,
 				"line" : 16,
-				"parent" : 88
+				"parent" : 89
 			},
 			{
 				"file" : 31,
-				"parent" : 89
+				"parent" : 90
 			},
 			{
 				"command" : 3,
 				"file" : 31,
 				"line" : 26,
-				"parent" : 90
+				"parent" : 91
 			},
 			{
 				"file" : 30,
-				"parent" : 91
+				"parent" : 92
 			},
 			{
 				"command" : 2,
 				"file" : 30,
 				"line" : 39,
-				"parent" : 92
+				"parent" : 93
 			},
 			{
 				"command" : 5,
 				"file" : 20,
 				"line" : 24,
-				"parent" : 52
+				"parent" : 53
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 94
-			},
-			{
-				"command" : 4,
-				"file" : 4,
-				"line" : 551,
 				"parent" : 95
 			},
 			{
-				"file" : 35,
+				"command" : 4,
+				"file" : 4,
+				"line" : 551,
 				"parent" : 96
 			},
 			{
-				"command" : 3,
 				"file" : 35,
-				"line" : 16,
 				"parent" : 97
 			},
 			{
-				"file" : 34,
+				"command" : 3,
+				"file" : 35,
+				"line" : 16,
 				"parent" : 98
 			},
 			{
-				"command" : 3,
 				"file" : 34,
-				"line" : 26,
 				"parent" : 99
 			},
 			{
-				"file" : 33,
+				"command" : 3,
+				"file" : 34,
+				"line" : 26,
 				"parent" : 100
 			},
 			{
-				"command" : 2,
 				"file" : 33,
-				"line" : 39,
 				"parent" : 101
 			},
 			{
+				"command" : 2,
+				"file" : 33,
+				"line" : 39,
+				"parent" : 102
+			},
+			{
 				"command" : 5,
 				"file" : 17,
 				"line" : 24,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 103
-			},
-			{
-				"command" : 4,
-				"file" : 4,
-				"line" : 551,
 				"parent" : 104
 			},
 			{
-				"file" : 38,
+				"command" : 4,
+				"file" : 4,
+				"line" : 551,
 				"parent" : 105
 			},
 			{
-				"command" : 3,
 				"file" : 38,
-				"line" : 16,
 				"parent" : 106
 			},
 			{
-				"file" : 37,
+				"command" : 3,
+				"file" : 38,
+				"line" : 16,
 				"parent" : 107
 			},
 			{
-				"command" : 3,
 				"file" : 37,
-				"line" : 26,
 				"parent" : 108
 			},
 			{
-				"file" : 36,
+				"command" : 3,
+				"file" : 37,
+				"line" : 26,
 				"parent" : 109
 			},
 			{
-				"command" : 2,
 				"file" : 36,
-				"line" : 39,
 				"parent" : 110
 			},
 			{
+				"command" : 2,
+				"file" : 36,
+				"line" : 39,
+				"parent" : 111
+			},
+			{
 				"command" : 5,
 				"file" : 17,
 				"line" : 24,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 112
-			},
-			{
-				"command" : 4,
-				"file" : 4,
-				"line" : 551,
 				"parent" : 113
 			},
 			{
-				"file" : 41,
+				"command" : 4,
+				"file" : 4,
+				"line" : 551,
 				"parent" : 114
+			},
+			{
+				"file" : 41,
+				"parent" : 115
 			},
 			{
 				"command" : 3,
 				"file" : 41,
 				"line" : 16,
-				"parent" : 115
+				"parent" : 116
 			},
 			{
 				"file" : 40,
-				"parent" : 116
+				"parent" : 117
 			},
 			{
 				"command" : 3,
 				"file" : 40,
 				"line" : 26,
-				"parent" : 117
+				"parent" : 118
 			},
 			{
 				"file" : 39,
-				"parent" : 118
+				"parent" : 119
 			},
 			{
 				"command" : 2,
 				"file" : 39,
 				"line" : 39,
-				"parent" : 119
+				"parent" : 120
 			},
 			{
 				"command" : 5,
 				"file" : 17,
 				"line" : 24,
-				"parent" : 42
+				"parent" : 43
 			},
 			{
 				"command" : 4,
 				"file" : 11,
 				"line" : 76,
-				"parent" : 121
+				"parent" : 122
 			},
 			{
 				"command" : 4,
 				"file" : 4,
 				"line" : 551,
-				"parent" : 122
+				"parent" : 123
 			},
 			{
 				"file" : 44,
-				"parent" : 123
+				"parent" : 124
 			},
 			{
 				"command" : 3,
 				"file" : 44,
 				"line" : 16,
-				"parent" : 124
+				"parent" : 125
 			},
 			{
 				"file" : 43,
-				"parent" : 125
+				"parent" : 126
 			},
 			{
 				"command" : 3,
 				"file" : 43,
 				"line" : 26,
-				"parent" : 126
+				"parent" : 127
 			},
 			{
 				"file" : 42,
-				"parent" : 127
+				"parent" : 128
 			},
 			{
 				"command" : 2,
 				"file" : 42,
 				"line" : 39,
-				"parent" : 128
+				"parent" : 129
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 56,
+				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 4,
+				"line" : 551,
+				"parent" : 131
+			},
+			{
+				"file" : 47,
+				"parent" : 132
+			},
+			{
+				"command" : 3,
+				"file" : 47,
+				"line" : 16,
+				"parent" : 133
+			},
+			{
+				"file" : 46,
+				"parent" : 134
+			},
+			{
+				"command" : 3,
+				"file" : 46,
+				"line" : 26,
+				"parent" : 135
+			},
+			{
+				"file" : 45,
+				"parent" : 136
+			},
+			{
+				"command" : 2,
+				"file" : 45,
+				"line" : 39,
+				"parent" : 137
+			},
+			{
+				"command" : 2,
+				"file" : 45,
+				"line" : 15,
+				"parent" : 137
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 41,
+				"line" : 48,
 				"parent" : 0
 			}
 		]
@@ -812,7 +869,7 @@
 					"path" : "C:/Users/carlo/.conan2/p/b/glewe2108c4c4b8ea/p/include"
 				},
 				{
-					"backtrace" : 130,
+					"backtrace" : 140,
 					"isSystem" : true,
 					"path" : "C:/Users/carlo/.conan2/p/glmb8583f8d3b716/p/include"
 				},
@@ -820,6 +877,11 @@
 					"backtrace" : 4,
 					"isSystem" : true,
 					"path" : "C:/Users/carlo/.conan2/p/b/assim1e0b242651fb1/p/include"
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "C:/Users/carlo/.conan2/p/b/imgui41f8f659dc338/p/include"
 				}
 			],
 			"language" : "CXX",
@@ -842,7 +904,9 @@
 				12,
 				15,
 				17,
-				20
+				20,
+				22,
+				24
 			]
 		}
 	],
@@ -925,83 +989,98 @@
 				"role" : "libraryPath"
 			},
 			{
-				"backtrace" : 12,
+				"backtrace" : 5,
+				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\imgui41f8f659dc338\\p\\lib",
+				"role" : "libraryPath"
+			},
+			{
+				"backtrace" : 13,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\glfw15951b9a4e9a5\\p\\lib\\libglfw3.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 13,
+				"backtrace" : 14,
 				"fragment" : "-lgdi32",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 21,
+				"backtrace" : 22,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\glewe2108c4c4b8ea\\p\\lib\\libglew32d.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 30,
+				"backtrace" : 31,
 				"fragment" : "-lopengl32",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 39,
+				"backtrace" : 40,
 				"fragment" : "-lglu32",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 47,
+				"backtrace" : 48,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\assim1e0b242651fb1\\p\\lib\\libassimpd.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 48,
+				"backtrace" : 49,
 				"fragment" : "-lstdc++",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 57,
+				"backtrace" : 58,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\miniz44b0629ec0041\\p\\lib\\libminizip.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 66,
+				"backtrace" : 67,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\bzip2e0b66714e23c1\\p\\lib\\libbz2.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 75,
+				"backtrace" : 76,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\pugixb5f14d9ea4300\\p\\lib\\libpugixml.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 84,
+				"backtrace" : 85,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\kuba-282a1652f7463\\p\\lib\\libzip.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 93,
+				"backtrace" : 94,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\poly278e341adf315a\\p\\lib\\libpoly2tri.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 102,
+				"backtrace" : 103,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\zlib75ffd3f86e5ba\\p\\lib\\libz.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 111,
+				"backtrace" : 112,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\dracoe959de8e6ac3f\\p\\lib\\libdraco.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 120,
+				"backtrace" : 121,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\clippf5e28f8e851d6\\p\\lib\\libpolyclipping.a",
 				"role" : "libraries"
 			},
 			{
-				"backtrace" : 129,
+				"backtrace" : 130,
 				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\opendd1ad6de6350a4\\p\\lib\\libopenddlparser.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 138,
+				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\imgui41f8f659dc338\\p\\lib\\libimgui.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 139,
+				"fragment" : "-limm32",
 				"role" : "libraries"
 			},
 			{
@@ -1033,7 +1112,9 @@
 				12,
 				15,
 				17,
-				20
+				20,
+				22,
+				24
 			]
 		},
 		{
@@ -1051,7 +1132,10 @@
 				16,
 				18,
 				19,
-				21
+				21,
+				23,
+				25,
+				26
 			]
 		}
 	],
@@ -1175,6 +1259,33 @@
 		{
 			"backtrace" : 1,
 			"path" : "program/lodepng.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "program/Interfaz/imgui_impl_glfw.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "program/Interfaz/imgui_impl_glfw.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "program/Interfaz/imgui_impl_opengl3.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "program/Interfaz/imgui_impl_opengl3.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"path" : "program/Interfaz/imgui_impl_opengl3_loader.h",
 			"sourceGroupIndex" : 1
 		}
 	],
