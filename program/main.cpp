@@ -76,25 +76,6 @@ void key_callback ( GLFWwindow *window, int key, int scancode, int action, int m
         PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_X);
     }
 
-    if (key == GLFW_KEY_A && action == GLFW_PRESS) {
-        // Añadimos Modelos
-        PAG::Renderer::GetInstancia()->anadirEliminarModelos(false);
-    }
-    if (key == GLFW_KEY_D && action == GLFW_PRESS) {
-        // Quitamos modelo
-        PAG::Renderer::GetInstancia()->anadirEliminarModelos(true);
-    }
-
-    // Cambio de modo de visualización
-    if (key == GLFW_KEY_Q && action == GLFW_PRESS) {
-        // Con la tecla Q ponemos modo de relleno en la visualización
-        PAG::Renderer::GetInstancia()->setTipoRenderizadoRelleno();
-    }
-    if (key == GLFW_KEY_E && action == GLFW_PRESS) {
-        // Con la tecla E ponemos modo de alambre en la visualización
-        PAG::Renderer::GetInstancia()->setTipoRenderizadoAlambre();
-    }
-
 }
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
@@ -179,9 +160,9 @@ void renderizarInterfaz() {
     ImGui_ImplGlfw_NewFrame();
     ImGui::NewFrame();
 
-    // Crear tu interfaz gráfica aquí, por ejemplo, un menú desplegable
-    ImGui::SetNextWindowSize(ImVec2(400,100));
-    if (ImGui::Begin("Menú Principal")) {
+    // Creo el menú desplegable
+    ImGui::SetNextWindowSize(ImVec2(300,100));
+    if (ImGui::Begin("Menú Principal", NULL, ImGuiWindowFlags_NoCollapse)) {
         if (ImGui::BeginMenu("Añadir")) {
             if (ImGui::MenuItem("Añadir luz puntual")) {
                 popupLuzPuntualAbierto = true;
@@ -203,10 +184,28 @@ void renderizarInterfaz() {
             }
             ImGui::EndMenu();
         }
+        if (ImGui::BeginMenu("Cambiar modo de visualización")) {
+            if (ImGui::MenuItem("Alambre")) {
+                PAG::Renderer::GetInstancia()->setTipoRenderizadoAlambre();
+            }
+            if (ImGui::MenuItem("Relleno")) {
+                PAG::Renderer::GetInstancia()->setTipoRenderizadoRelleno();
+            }
+            ImGui::EndMenu();
+        }
+        if (ImGui::BeginMenu("Alternar muestra de modelo")) {
+            if (ImGui::MenuItem("Eliminar modelo")) {
+                PAG::Renderer::GetInstancia()->anadirEliminarModelos(true);
+            }
+            if (ImGui::MenuItem("Añadir Modelo")) {
+                PAG::Renderer::GetInstancia()->anadirEliminarModelos(false);
+            }
+            ImGui::EndMenu();
+        }
         ImGui::End();
 
         if (popupAnadirModelo) {
-            ImGui::SetNextWindowSize(ImVec2(408, 199));
+            ImGui::SetNextWindowSize(ImVec2(408, 170));
             if (ImGui::Begin("Añadir Modelo")) {
                 static glm::vec3 posicion;
                 static glm::vec3 escalado;
@@ -236,7 +235,7 @@ void renderizarInterfaz() {
         }
 
         if (popupLuzPuntualAbierto) {
-            ImGui::SetNextWindowSize(ImVec2(408,199));
+            ImGui::SetNextWindowSize(ImVec2(408,150));
             if (ImGui::Begin("Añadir Luz Puntual")) {
                 static glm::vec3 colorDifuso;
                 static glm::vec3 colorEspecular;
@@ -260,7 +259,7 @@ void renderizarInterfaz() {
         }
 
         if (popupLuzDireccionalAbierto) {
-            ImGui::SetNextWindowSize(ImVec2(408,199));
+            ImGui::SetNextWindowSize(ImVec2(408,150));
             if (ImGui::Begin("Añadir Luz Direccional")) {
                 static glm::vec3 colorDifuso;
                 static glm::vec3 colorEspecular;

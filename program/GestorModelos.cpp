@@ -7,7 +7,11 @@
 void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura) {
     Modelos* modelo = new Modelos(path, matrizModelado);
     if (!rutaTextura.empty()) {
-        modelo->setIdTextura(this->idTexturaModelos);
+        if (idTexturaModelos == 1) { // TODO cambiar esto y que funcione bien de forma natural
+            modelo->setIdTextura(2);
+        } else {
+            modelo->setIdTextura(this->idTexturaModelos);
+        }
         cargarTextura(rutaTextura);
     }
     modelosEscena.push_back(modelo);
@@ -87,7 +91,12 @@ void PAG::GestorModelos::cargarTextura(std::string rutaTextura) {
     glTexImage2D ( GL_TEXTURE_2D, 0, GL_RGBA, ancho, alto, 0, GL_RGBA,GL_UNSIGNED_BYTE, imagen.data() );
     glGenerateTextureMipmap (idTexturaModelos);
     // Aumentamos el ID para las próximas texturas
-    idTexturaModelos++;
+
+    // Un error tiene lugar dado que la primera textura que se carga si aumenta unidad por si misma
+    //TODO arreglar error y que el incremento sea constante
+    if (idTexturaModelos > 1) {
+        idTexturaModelos++;
+    }
 }
 
 void PAG::GestorModelos::eliminarModeloEscena() {
