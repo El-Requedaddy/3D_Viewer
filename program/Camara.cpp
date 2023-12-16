@@ -11,12 +11,14 @@ PAG::Camara::Camara(const glm::vec3 &posicionCamara, const glm::vec3 &vectorLook
 
     // Sacamos las matrices correspondientes a la camara
     ratioDeAspecto = 1024 / 576;
-    std::cout << ratioDeAspecto;
     matrizVision = glm::lookAt(posicionCamara, vectorLookAt, vectorArriba);
     matrizProyeccion = glm::perspective(glm::radians(gradosEnRadianes), ratioDeAspecto, zNear, zFar);
     // La ultima posicion del raton al instante de inicializar la clase es 0
     ultimaPosicionRaton.x = 0;
     ultimaPosicionRaton.y = 0;
+    yaw = -90.0f;
+    pitch = 0.0f;
+    primerMovimientoRaton = true;
 }
 
 // Constructor
@@ -24,43 +26,52 @@ PAG::Camara::Camara() {
     matrizProyeccion = glm::perspective(glm::radians(gradosEnRadianes), ratioDeAspecto, 0.1f, 100.0f);
 }
 
-void PAG::Camara::procesarMovimiento(double diferenciaX, double diferenciaY, double x, double y) {
+void PAG::Camara::procesarMovimiento(double xpos, double ypos) {
     //Cambio la ultima posicion del raton
-    ultimaPosicionRaton.x = x;
-    ultimaPosicionRaton.y = y;
-    float velocidadRaton = 3.0f;
+    if (primerMovimientoRaton) {
+        ultimaPosicionRaton.x = xpos;
+        ultimaPosicionRaton.y = ypos;
+        primerMovimientoRaton = false;
+    }
+    double diferenciaX = xpos - ultimaPosicionRaton.x;
+    double diferenciaY = ultimaPosicionRaton.y - ypos;
+    ultimaPosicionRaton.x = xpos;
+    ultimaPosicionRaton.y = ypos;
+    float sensitividad = 0.3f;
+    diferenciaX *= sensitividad;
+    diferenciaY *= sensitividad;
 
-    // Angulos de camara calculados respecto a la resolución
-    anguloHorizontal += velocidadRaton * 3 * float(1024/2 - diferenciaX );
-    anguloVertical   += velocidadRaton * 3 * float( 768/2 - diferenciaY );
+    yaw += diferenciaX;
+    pitch += diferenciaY;
 
-    // Calculo simple: http://www.numericana.com/answer/trig.gif
-    glm::vec3 direccion(cos(anguloVertical) * sin(anguloHorizontal), sin(anguloVertical), cos(anguloVertical) * cos(anguloHorizontal));
-    glm::vec3 vectorDerecha = glm::vec3(sin(anguloHorizontal - 3.14f/2.0f), 0, cos(anguloVertical - 3.14f/2.0f));
-    glm::vec3 up = glm::cross( vectorDerecha, direccion );
+    if(pitch > 89.0f)
+        pitch =  89.0f;
+    if(pitch < -89.0f)
+        pitch = -89.0f;
 
-    vectorLookAt = posicionCamara + direccion;
-    vectorArriba = up;
-    std::cout << "El vector LookAt resultante es: " << vectorLookAt.x << std::endl;
+    glm::vec3 direccionCamara;
+    direccionCamara.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+    direccionCamara.y = sin(glm::radians(pitch));
+    direccionCamara.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+    vectorLookAt = glm::normalize(direccionCamara);
 }
 
-void PAG::Camara::movimientoArriba() {
-    std::cout << "Hola" << std::endl;
-    posicionCamara.y += 1;
+void PAG::Camara::movimientoArriba(float velocidadCamara) {
+    glm::vec3 delante = velocidadCamara * vectorLookAt;
+    posicionCamara += delante;
+    std::cout << "La posicion de la camara es: " << posicionCamara.x << "," << posicionCamara.y << ", " << posicionCamara.z;
 }
 
-void PAG::Camara::movimientoAbajo() {
-    posicionCamara.y -= 1;
+void PAG::Camara::movimientoAbajo(float velocidadCamara) {
+    posicionCamara -= velocidadCamara * vectorLookAt;
 }
 
-void PAG::Camara::movimientoIzquierda() {
-    posicionCamara.x -= 1;
-    posicionCamara.z -= 1;
+void PAG::Camara::movimientoIzquierda(float velocidadCamara) {
+    posicionCamara += glm::normalize(glm::cross(vectorArriba, vectorLookAt)) * velocidadCamara;
 }
 
-void PAG::Camara::movimientoDerecha() {
-    posicionCamara.x += 1;
-    posicionCamara.z += 1;
+void PAG::Camara::movimientoDerecha(float velocidadCamara) {
+    posicionCamara -= glm::normalize(glm::cross(vectorArriba, vectorLookAt)) * velocidadCamara;
 }
 
 const glm::vec3 &PAG::Camara::getPosicionCamara() const {
@@ -88,7 +99,7 @@ void PAG::Camara::setVectorArriba(const glm::vec3 &vectorArriba) {
 }
 
 glm::mat4 &PAG::Camara::getMatrizVision() {
-    matrizVision = glm::lookAt(posicionCamara, vectorLookAt, vectorArriba);
+    matrizVision = glm::lookAt(posicionCamara, posicionCamara + vectorLookAt, vectorArriba);
     return matrizVision;
 }
 
@@ -119,4 +130,8 @@ void PAG::Camara::panoramica(float a) {
 
 void PAG::Camara::cabeceo(float a) {
     vectorLookAt.y += a;
+}
+
+void PAG::Camara::setPrimerMovimientoRaton(bool primerMovimientoRaton) {
+    this->primerMovimientoRaton = primerMovimientoRaton;
 }

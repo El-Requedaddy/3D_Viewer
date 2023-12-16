@@ -20,6 +20,10 @@ bool popupLuzPuntualAbierto = false;
 bool popupLuzDireccionalAbierto = false;
 bool popupAnadirModelo = false;
 
+// Medida de tiempo
+float deltaTime = 0.0f;	// Tiempo entre el frame actual y el último
+float lastFrame = 0.0f; // Tiempo del último frame
+
 // - Esta función callback será llamada cada vez que el área de dibujo
 // OpenGL deba ser redibujada.
 void window_refresh_callback ( GLFWwindow *window )
@@ -49,38 +53,41 @@ void key_callback ( GLFWwindow *window, int key, int scancode, int action, int m
     }
     std::cout << "Key callback called" << std::endl;
 
+    float velocidadCamara = 30.5f * deltaTime;
 
     // Movimientos de camara con teclas
-    if (key == GLFW_KEY_UP && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_UP);
+    if (key == GLFW_KEY_W && action == GLFW_PRESS){
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_UP, velocidadCamara);
     }
-    if (key == GLFW_KEY_DOWN && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_DOWN);
+    if (key == GLFW_KEY_S && action == GLFW_PRESS){
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_DOWN, velocidadCamara);
     }
-    if (key == GLFW_KEY_RIGHT && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_RIGHT);
+    if (key == GLFW_KEY_D && action == GLFW_PRESS){
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_RIGHT, velocidadCamara);
     }
-    if (key == GLFW_KEY_LEFT && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_LEFT);
+    if (key == GLFW_KEY_A && action == GLFW_PRESS){
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_LEFT, velocidadCamara);
     }
     if (key == GLFW_KEY_P && action == GLFW_PRESS){ // Panorámica Izquierda
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_P);
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_P, velocidadCamara);
     }
     if (key == GLFW_KEY_C && action == GLFW_PRESS){ // Cabeceo Izquierda
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_C);
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_C, velocidadCamara);
     }
     if (key == GLFW_KEY_O && action == GLFW_PRESS){ // Panorámica Derecha
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_O);
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_O, velocidadCamara);
     }
     if (key == GLFW_KEY_X && action == GLFW_PRESS){ // Cabeceo Derecha
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_X);
+        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_X, velocidadCamara);
     }
 
 }
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
-    PAG::Renderer::GetInstancia()->movimientoRatonCamara(xpos, ypos, clickIzquierdoMantenido);
-    std::cout << "Movimiento de ratón registrado en pantalla" << "\n";
+    if (clickIzquierdoMantenido) {
+        std::cout << "Detectado movimiento" << std::endl;
+        PAG::Renderer::GetInstancia()->movimientoRatonCamara(xpos, ypos, clickIzquierdoMantenido);
+    }
 }
 
 // - Esta función callback será llamada cada vez que se pulse algún botón
@@ -95,12 +102,17 @@ void mouse_button_callback ( GLFWwindow *window, int button, int action, int mod
             clickIzquierdoMantenido = true;
             std::cout << "Click presionado" << std::endl;
         }
-        std::cout << "Pulsado el boton: " << button << std::endl;
+
+        if (button == GLFW_MOUSE_BUTTON_RIGHT) {
+        }
     }
     else if ( action == GLFW_RELEASE )
     {
-        if (button == 0 && clickIzquierdoMantenido)
+        if (button == 0 && clickIzquierdoMantenido) {
             clickIzquierdoMantenido = false;
+            PAG::Renderer::GetInstancia()->getCamara()->setPrimerMovimientoRaton(true);
+        }
+
 
         std::cout << "Soltado el boton: " << button << std::endl;
     }
@@ -205,10 +217,14 @@ void renderizarInterfaz() {
         ImGui::End();
 
         if (popupAnadirModelo) {
-            ImGui::SetNextWindowSize(ImVec2(408, 170));
+            ImGui::SetNextWindowSize(ImVec2(435, 250));
             if (ImGui::Begin("Añadir Modelo")) {
                 static glm::vec3 posicion;
                 static glm::vec3 escalado;
+                static glm::vec3 componenteAmbiente;
+                static glm::vec3 componenteDifuso;
+                static glm::vec3 componenteEspecular;
+                static float brillo;
                 static char path[256] = "";
                 static char rutaTextura[256] = "";
 
@@ -216,6 +232,10 @@ void renderizarInterfaz() {
                 ImGui::InputFloat3("Escalado", glm::value_ptr(escalado));
                 ImGui::InputText("Nombre de modelo", path, sizeof(path));
                 ImGui::InputText("Nombre de textura", rutaTextura, sizeof(rutaTextura));
+                ImGui::InputFloat3("Componente Ambiente", glm::value_ptr(componenteAmbiente));
+                ImGui::InputFloat3("Componente Difuso", glm::value_ptr(componenteDifuso));
+                ImGui::InputFloat3("Componente Especular", glm::value_ptr(componenteEspecular));
+                ImGui::InputFloat("Brillo", &brillo);
 
                 if (ImGui::Button("Crear")) {
                     std::string modelo = path;
@@ -223,7 +243,8 @@ void renderizarInterfaz() {
                     std::string textura = rutaTextura;
                     glm::mat4 matrizModelado = glm::translate(glm::mat4(1.0f), posicion);
                     matrizModelado = glm::scale(matrizModelado, escalado);
-                    PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, "Texturas/" + textura + ".png");
+                    PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, "Texturas/" + textura + ".png", brillo,
+                                                               componenteAmbiente, componenteDifuso, componenteEspecular);
                     popupAnadirModelo = false;
                 }
 
@@ -372,6 +393,7 @@ int main() {
     glfwSetKeyCallback ( window, key_callback );
     glfwSetMouseButtonCallback ( window, mouse_button_callback );
     glfwSetScrollCallback ( window, scroll_callback );
+    glfwSetCursorPosCallback(window, cursor_position_callback);
 
     // Llama al método inicializaOpenGL para configurar el estado inicial de OpenGL
     PAG::Renderer::GetInstancia()->inicializaOpenGL();
@@ -416,6 +438,11 @@ int main() {
         // de teclas o de ratón, etc. Siempre al final de cada iteración del
         // ciclo de eventos y después de glfwSwapBuffers ( window );
 
+        // Tenemos la variable delta siempre en consideración
+        float currentFrame = glfwGetTime();
+        deltaTime = currentFrame - lastFrame;
+        lastFrame = currentFrame;
+
         PAG::Renderer::GetInstancia()->Refrescar();
         //PAG::Renderer::GetInstancia()->renderizarModelos();
         renderizarInterfaz();
@@ -430,7 +457,6 @@ int main() {
     glfwDestroyWindow ( window ); // - Cerramos y destruimos la ventana de la aplicación.
     window = nullptr;
     glfwTerminate (); // - Liberamos los recursos que ocupaba GLFW.
-
     // - Esta llamada es para impedir que la consola se cierre inmediatamente tras la
     // ejecución y poder leer los mensajes
     getchar ();

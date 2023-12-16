@@ -34,7 +34,11 @@ namespace PAG {
             private:
             // Instancias de elementos tales como la cámara, shaderHandler y demás
             Camara* camara;
-            GestorModelos* gestorModelos;
+    public:
+        Camara *getCamara() const;
+
+    private:
+        GestorModelos* gestorModelos;
             TipoRenderizado renderizado = relleno;
             TipoCalculoColor modoCalculoColor = textura;
 
@@ -88,8 +92,9 @@ namespace PAG {
             void inicializaOpenGL();
             void seteoCamara();
             void movimientoRatonCamara(double xpos, double ypos, bool clickIzquierdoMantenido);
-            void movimientoTeclasCamara(int glcode);
-            void crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura);
+            void movimientoTeclasCamara(int glcode, float velocidadCamara);
+            void crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+                             glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular);
             void refrescarModelos();
             void dibujadoModelos();
             void anadirEliminarModelos(bool eliminar);

@@ -61,8 +61,8 @@ void PAG::Renderer::inicializaOpenGL() {
 
 void PAG::Renderer::seteoCamara() {
     // Valores default al inicializar
-    glm::vec3 posicionCamara = glm::vec3(0.0f, 0.0f, -5.0f);
-    glm::vec3 vectorLookAt = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 posicionCamara = glm::vec3(0.0f, 0.0f, 0.0f);
+    glm::vec3 vectorLookAt = glm::vec3(0.0f, 0.0f, -1.0f);
     glm::vec3 vectorUp = glm::vec3(0.0f, 1.0f, 0.0f);
     float gradosRadianes = 45.0f;
     float zNear = 0.1f;
@@ -73,23 +73,21 @@ void PAG::Renderer::seteoCamara() {
 }
 
 void PAG::Renderer::movimientoRatonCamara(double xpos, double ypos, bool clickIzquierdoMantenido) {
-    double diferenciaX = xpos - camara->getUltimaPosicionRaton().x;
-    double diferenciaY = ypos - camara->getUltimaPosicionRaton().y;
-    camara->procesarMovimiento(diferenciaX, diferenciaY, xpos, ypos);
+    camara->procesarMovimiento(xpos, ypos);
 }
 
-void PAG::Renderer::movimientoTeclasCamara(int glcode) {
+void PAG::Renderer::movimientoTeclasCamara(int glcode, float velocidadCamara) {
     if (glcode == GLFW_KEY_UP) {
-        camara->movimientoArriba();
+        camara->movimientoArriba(velocidadCamara);
     }
     if (glcode == GLFW_KEY_DOWN) {
-        camara->movimientoAbajo();
+        camara->movimientoAbajo(velocidadCamara);
     }
     if (glcode == GLFW_KEY_LEFT) {
-        camara->movimientoIzquierda();
+        camara->movimientoIzquierda(velocidadCamara);
     }
     if (glcode == GLFW_KEY_RIGHT) {
-        camara->movimientoDerecha();
+        camara->movimientoDerecha(velocidadCamara);
     }
 
     if (glcode == GLFW_KEY_P) {
@@ -159,8 +157,9 @@ PAG::Renderer::~Renderer() {
  * @post Se asignan los datos del modelo a los arrays necesarios.
  * @post La textura se asigna al modelo mediante el constructor.
  */
-void PAG::Renderer::crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura) {
-    gestorModelos->creaModelo(path, matrizModelado, rutaTextura);
+void PAG::Renderer::crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+                                glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular) {
+    gestorModelos->creaModelo(path, matrizModelado, rutaTextura, brillo, colorAmbiental, componenteDifuso, exponenteEspecular);
     asignarModeloArrays();
 }
 
@@ -240,6 +239,7 @@ void PAG::Renderer::dibujadoModelos() {
                 unsigned int componenteAmbiente = shader->getUniform ( "Ka" );
                 unsigned int coeficienteDifuso = shader->getUniform ( "Ks" );
                 unsigned int intensidadEspecular = shader->getUniform ( "Kd" );
+                unsigned int brilloUniform = shader->getUniform ( "brillo" );
 
                 glm::mat4 matrizModelado = modelos[i]->getMatrizModeladoModelo ();
                 glm::mat4 matrizModeladoVision = camara->getMatrizVision () * matrizModelado;
@@ -249,6 +249,7 @@ void PAG::Renderer::dibujadoModelos() {
                 glm::vec3 Ka = modelos[i]->getColorAmbiente ();
                 glm::vec3 Ks = modelos[i]->getExponenteEspecular ();
                 glm::vec3 Kd = modelos[i]->getComponenteDifuso ();
+                float brillo = modelos[i]->getEspecular();
 
                 // Vinculamos las uniform
                 glUniformMatrix4fv ( matrizVistaUniform, 1, GL_FALSE, glm::value_ptr ( matrizModeladoVision ) );
@@ -256,6 +257,7 @@ void PAG::Renderer::dibujadoModelos() {
                 glUniform3fv ( componenteAmbiente, 1, glm::value_ptr ( Ka ) );
                 glUniform3fv ( coeficienteDifuso, 1, glm::value_ptr ( Ks ) );
                 glUniform3fv ( intensidadEspecular, 1, glm::value_ptr ( Kd ) );
+                glUniform1f(brilloUniform, brillo);
 
                 // Activamos la textura y la preparamos
                 activarTextura(modelos[i]->getIdTextura(),shader->getIdSp());
@@ -479,4 +481,8 @@ void PAG::Renderer::crearluzDireccional(glm::vec3 colorDifuso, glm::vec3 colorEs
     PAG::Luz* luzDireccional = new PAG::Luz(tipoLuz3, colorDifuso,
                                             colorEspecular, glm::vec3(5.0, 5.0, 4.0), direccion);
     lucesEscena.push_back(luzDireccional);
+}
+
+PAG::Camara *PAG::Renderer::getCamara() const {
+    return camara;
 }

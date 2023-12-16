@@ -19,7 +19,8 @@ namespace PAG {
 
     class Modelos {
     public:
-        Modelos(const char *path, glm::mat4 matrizModelado);
+        Modelos(const char *path, glm::mat4 matrizModelado, float brillo, glm::vec3 colorAmbiental,
+                glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular);
 
     private:
         std::vector<MallaModelo*> malla;

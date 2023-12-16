@@ -4,8 +4,9 @@
 
 #include "GestorModelos.h"
 
-void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura) {
-    Modelos* modelo = new Modelos(path, matrizModelado);
+void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+                                    glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular) {
+    Modelos* modelo = new Modelos(path, matrizModelado, brillo, colorAmbiental, componenteDifuso, exponenteEspecular);
     if (!rutaTextura.empty()) {
         if (idTexturaModelos == 1) { // TODO cambiar esto y que funcione bien de forma natural
             modelo->setIdTextura(2);

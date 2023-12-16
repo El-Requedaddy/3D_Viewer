@@ -11,7 +11,7 @@ uniform vec3 Ka;
 uniform vec3 Ks;
 uniform vec3 Kd;
 
-vec3 brillo;
+uniform float brillo;
 uniform sampler2D muestreador;   // Sampler para comunicar con la unidad de textura
 
 //subroutine vec4 calcularColor();
@@ -31,7 +31,7 @@ vec4 calcularFuenteLuminosaDireccional (vec4 color) {
     vec3 r = reflect(-l, n);
 
     vec3 difusa = (vec3(color) * Id * Kd * max(dot(l, n), 0.0));
-    vec3 especular = (Ks * Is * pow(max(dot(r, v), 0.0), 32));
+    vec3 especular = (Ks * Is * pow(max(dot(r, v), 0.0), brillo));
 
     vec3 suma = (difusa + especular);
 	return vec4(suma, 1.0);

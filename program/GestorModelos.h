@@ -16,7 +16,8 @@ namespace PAG {
         GLuint idTexturaModelos;
 
     public:
-        void creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura);
+        void creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+                        glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular);
         void cargarTextura(std::string rutaTextura);
         ~GestorModelos();
         GestorModelos();

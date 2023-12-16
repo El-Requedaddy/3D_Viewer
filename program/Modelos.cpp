@@ -158,18 +158,16 @@ void PAG::Modelos::setEspecular(float especular) {
     Modelos::especular = especular;
 }
 
-PAG::Modelos::Modelos(const char *path, glm::mat4 matrizModelado) {
+PAG::Modelos::Modelos(const char *path, glm::mat4 matrizModelado, float brillo, glm::vec3 colorAmbiental,
+                      glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular) {
     activoEnEscena = true;
     this->matrizModeladoModelo = matrizModelado;
     cargarModelo(path);
 
-    // Doy valores random a los componentes de material por ahora
-    glm::vec3 colorAmbiental(0.5f, 0.5f, 0.5f);
-    colorAmbiente = colorAmbiental;
-    glm::vec3 componenteDifusoAux(0.8f, 0.8f, 0.8f);
-    componenteDifuso = componenteDifusoAux;
-    glm::vec3 especularAux(1.0f, 1.0f, 1.0f);
-    exponenteEspecular = especularAux;
+    this->especular = brillo;
+    this->colorAmbiente = colorAmbiental;
+    this->componenteDifuso = componenteDifuso;
+    this->exponenteEspecular = exponenteEspecular;
 }
 
 GLuint PAG::Modelos::getIdTextura() const {
