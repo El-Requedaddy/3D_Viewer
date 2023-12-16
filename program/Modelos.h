@@ -29,6 +29,7 @@ namespace PAG {
         bool activoEnEscena;
         GLuint idSP;
         GLuint idTextura;
+        GLuint idTexturaNormal;
 
     private:
         std::vector<Textura> texturasCargadas;
@@ -61,6 +62,8 @@ namespace PAG {
         void setEspecular(float especular);
         GLuint getIdTextura() const;
         void setIdTextura(GLuint idTextura);
+        GLuint getIdTexturaNormal() const;
+        void setIdTexturaNormal(GLuint idTexturaNormal);
 
     public:
         std::vector<Vertice> obtenerVerticesModelo();

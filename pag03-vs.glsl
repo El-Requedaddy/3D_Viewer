@@ -16,7 +16,6 @@ out salidaVS {
 } salida;
 
 void main () {
-	vec3 normal = vec3(matrizModeladoVision * vec4(normal, 0.0));
 	salida.normalV = normal;
 	salida.posicionV = vec3(matrizModeladoVision * vec4(posicion, 1.0));
 	salida.cTexturaV = textCoords;   // Las coordenadas de textura se pasan tal cual al fragment shader

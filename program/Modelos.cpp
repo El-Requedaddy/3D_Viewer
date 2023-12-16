@@ -25,7 +25,7 @@ void PAG::Modelos::cargarModelo(std::string path) {
     Assimp::Importer importador;
     const aiScene* escena = nullptr; // Inicializa con nullptr
     try {
-        escena = importador.ReadFile(path, aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_GenSmoothNormals);
+        escena = importador.ReadFile(path, aiProcess_JoinIdenticalVertices | aiProcess_Triangulate | aiProcess_GenSmoothNormals | aiProcess_CalcTangentSpace);
 
         if (!escena || escena->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !escena->mRootNode) {
             std::cout << "ERROR::ASSIMP::CARGA::MODELO::" << importador.GetErrorString() << std::endl;
@@ -81,6 +81,22 @@ PAG::MallaModelo* PAG::Modelos::procesarMalla(aiMesh *mesh, const aiScene *scene
             vec.y = mesh->mTextureCoords[0][i].y;
             vertice.TexCoords = vec;
         }
+
+        // Si hay tangentes, también habrá bitangentes
+        if ( mesh->mTangents ) {
+            glm::vec3 t;
+            t.x = mesh->mTangents[i].x;
+            t.y = mesh->mTangents[i].y;
+            t.z = mesh->mTangents[i].z;
+            vertice.Tangente = t;
+            glm::vec3 bt;
+            bt.x = mesh->mBitangents[i].x;
+            bt.y = mesh->mBitangents[i].y;
+            bt.z = mesh->mBitangents[i].z;
+            vertice.Bitangente = bt;
+        }
+
+
         else {
             vertice.TexCoords = glm::vec2(0.0f, 0.0f);
         }
@@ -168,6 +184,10 @@ PAG::Modelos::Modelos(const char *path, glm::mat4 matrizModelado, float brillo, 
     this->colorAmbiente = colorAmbiental;
     this->componenteDifuso = componenteDifuso;
     this->exponenteEspecular = exponenteEspecular;
+    // Inicializamos a 0 para comprobar si se ha cargado la textura o no, es decir, si es 0 no se ha cargado
+    // También sirve para evaluar si tiene textura o no
+    this->idTextura = 0;
+    this->idTexturaNormal = 0;
 }
 
 GLuint PAG::Modelos::getIdTextura() const {
@@ -176,5 +196,13 @@ GLuint PAG::Modelos::getIdTextura() const {
 
 void PAG::Modelos::setIdTextura(GLuint idTextura) {
     Modelos::idTextura = idTextura;
+}
+
+GLuint PAG::Modelos::getIdTexturaNormal() const {
+    return idTexturaNormal;
+}
+
+void PAG::Modelos::setIdTexturaNormal(GLuint idTexturaNormal) {
+    Modelos::idTexturaNormal = idTexturaNormal;
 }
 

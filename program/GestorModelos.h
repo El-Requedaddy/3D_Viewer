@@ -16,7 +16,7 @@ namespace PAG {
         GLuint idTexturaModelos;
 
     public:
-        void creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+        void creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, std::string rutaNormal, float brillo, glm::vec3 colorAmbiental,
                         glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular);
         void cargarTextura(std::string rutaTextura);
         ~GestorModelos();
@@ -24,6 +24,8 @@ namespace PAG {
         // Añadir o eliminar de la escena modelos
         void eliminarModeloEscena();
         void añadirModelosEscena();
+        void activarTexturasModelo(GLuint idSP, int indice);
+        void desactivarTexturasModelo(GLuint idSP, int indice);
 
         std::vector<Modelos*>& getModelosEscena() {
             return modelosEscena;

@@ -21,12 +21,13 @@ namespace PAG {
 
     enum TipoRenderizado{
         alambre,
-        relleno
+        relleno,
+        rellenoNormales
     };
 
     enum TipoCalculoColor{
         material,
-        textura
+        textura,
     };
 
     class Renderer {
@@ -64,6 +65,7 @@ namespace PAG {
             void setTipoCalculoColorTextura();
             void setTipoRenderizadoAlambre();
             void setTipoRenderizadoRelleno();
+            void setTipoRenderizadoRellenoMapeadoNormal();
 
             private:
             float alturaPantalla;
@@ -74,12 +76,6 @@ namespace PAG {
             public:
             Renderer();
             Renderer(const Renderer& obj) = delete;
-            GLuint getIdVao() const;
-            void setIdVao(GLuint idVao);
-            GLuint getIdVbo() const;
-            void setIdVbo(GLuint idVbo);
-            GLuint getIdIbo() const;
-            void setIdIbo(GLuint idIbo);
 
             virtual ~Renderer();
             static std::shared_ptr<Renderer> GetInstancia();
@@ -93,7 +89,7 @@ namespace PAG {
             void seteoCamara();
             void movimientoRatonCamara(double xpos, double ypos, bool clickIzquierdoMantenido);
             void movimientoTeclasCamara(int glcode, float velocidadCamara);
-            void crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+            void crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, std::string rutaNormal, float brillo, glm::vec3 colorAmbiental,
                              glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular);
             void refrescarModelos();
             void dibujadoModelos();

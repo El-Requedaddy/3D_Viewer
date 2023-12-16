@@ -4,7 +4,7 @@
 
 #include "GestorModelos.h"
 
-void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, std::string rutaNormal, float brillo, glm::vec3 colorAmbiental,
                                     glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular) {
     Modelos* modelo = new Modelos(path, matrizModelado, brillo, colorAmbiental, componenteDifuso, exponenteEspecular);
     if (!rutaTextura.empty()) {
@@ -14,6 +14,10 @@ void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, 
             modelo->setIdTextura(this->idTexturaModelos);
         }
         cargarTextura(rutaTextura);
+    }
+    if (!rutaNormal.empty()) {
+        modelo->setIdTexturaNormal(this->idTexturaModelos);
+        cargarTextura(rutaNormal);
     }
     modelosEscena.push_back(modelo);
 }
@@ -97,6 +101,42 @@ void PAG::GestorModelos::cargarTextura(std::string rutaTextura) {
     //TODO arreglar error y que el incremento sea constante
     if (idTexturaModelos > 1) {
         idTexturaModelos++;
+    }
+}
+
+void PAG::GestorModelos::activarTexturasModelo(GLuint idSP, int indice) {
+    if (modelosEscena[indice]->getIdTextura() != 0) {
+        glActiveTexture(GL_TEXTURE0);
+        glBindTexture(GL_TEXTURE_2D, modelosEscena[indice]->getIdTextura());
+        glUniform1i(glGetUniformLocation(idSP, "muestreador"), 0);
+    }
+
+    if (modelosEscena[indice]->getIdTexturaNormal() != 0) {
+        glActiveTexture(GL_TEXTURE1);
+        glBindTexture(GL_TEXTURE_2D, modelosEscena[indice]->getIdTexturaNormal());
+        glUniform1i(glGetUniformLocation(idSP, "muestreadorNormal"), 1);
+    }
+}
+
+void PAG::GestorModelos::desactivarTexturasModelo(GLuint idSP, int indice) {
+    if (modelosEscena[indice]->getIdTextura() == 0) {
+        return;
+    } else {
+        glActiveTexture(GL_TEXTURE0);
+        // Vincula la textura al texto unit 0
+        glBindTexture(GL_TEXTURE_2D, modelosEscena[indice]->getIdTextura());
+        // Pasa el valor del sampler uniform al shader
+        glUniform1i(glGetUniformLocation(idSP, "muestreador"), 0);
+    }
+
+    if (modelosEscena[indice]->getIdTexturaNormal() == 0) {
+        return;
+    } else {
+        glActiveTexture(GL_TEXTURE1);
+        // Vincula la textura al texto unit 0
+        glBindTexture(GL_TEXTURE_2D, modelosEscena[indice]->getIdTexturaNormal());
+        // Pasa el valor del sampler uniform al shader
+        glUniform1i(glGetUniformLocation(idSP, "muestreadorNormal"), 1);
     }
 }
 

@@ -9,6 +9,8 @@ uniform vec3 Ks;
 uniform vec3 Kd;
 
 uniform sampler2D muestreador; // Sampler para comunicar con la unidad de textura
+uniform sampler2D muestreadorNormal;
+
 
 in salidaVS {
     vec3 posicionV;
@@ -21,6 +23,14 @@ vec3 n = normalize(entrada.normalV);
 vec4 calcularAmbiente(vec4 color) {
     return vec4(vec3(color) * Ka * luzAmbiental, 1.0);
 }
+
+vec4 calcularAmbientalNormalMapping () {
+    vec4 color = texture(muestreadorNormal, entrada.cTexturaV);
+    vec4 normal = 2 * (texture (muestreadorNormal, entrada.cTexturaV) - 0.5);
+    vec3 n = normalize ( normal.rgb );
+    return vec4(vec3(color) * Ka * luzAmbiental, 1.0);
+}
+
 
 // Definición de subrutinas
 subroutine vec4 elegirColor();
@@ -50,6 +60,12 @@ subroutine(calcularColor)
 vec4 colorModoLuz(vec4 colorDePartida) {
     return calcularAmbiente(colorDePartida);
     //return vec4(0,0,0,1);
+}
+
+subroutine( calcularColor )
+vec4 colorModoLuzTexturaNormal (vec4 colorDePartida) {
+    //return calcularAmbientalNormalMapping();
+    return calcularAmbiente(colorDePartida);
 }
 
 void main () {

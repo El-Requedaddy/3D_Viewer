@@ -13,6 +13,8 @@ uniform vec3 Kd;
 
 uniform float brillo;
 uniform sampler2D muestreador;   // Sampler para comunicar con la unidad de textura
+uniform sampler2D muestreadorNormal;
+
 
 //subroutine vec4 calcularColor();
 //subroutine uniform calcularColor colorElegido;
@@ -21,6 +23,8 @@ in salidaVS {
     vec3 posicionV;
     vec3 normalV;
     vec2 cTexturaV;
+    vec3 posicionTg;
+    vec3 dirLuzTg;
 } entrada;
 
 vec3 n = normalize(entrada.normalV);
@@ -35,6 +39,21 @@ vec4 calcularFuenteLuminosaDireccional (vec4 color) {
 
     vec3 suma = (difusa + especular);
 	return vec4(suma, 1.0);
+}
+
+vec4 calcularFuenteLuminosaDireccionalNormalMapping () {
+    vec4 color = texture(muestreadorNormal, entrada.cTexturaV);
+    vec4 normal = 2 * (texture (muestreadorNormal, entrada.cTexturaV) - 0.5);
+    vec3 n = normalize ( normal.rgb );
+
+    vec3 l = normalize ( -entrada.dirLuzTg );
+    vec3 v = normalize (- entrada.posicionTg);
+    vec3 r = reflect ( -l, n );
+
+    vec4 colorD = vec4 ( Id, 1 ) * color * max ( dot ( l, n ), 0 );
+    vec4 colorS = vec4 ( Is, 1 ) * vec4(Ks, 1) * pow ( max ( dot ( r, v ), 0 ), brillo );
+
+    return ( colorD + colorS );
 }
 
 // Definición de subrutinas
@@ -63,6 +82,11 @@ subroutine( calcularColor )
 vec4 colorModoLuz (vec4 colorDePartida) {
     return calcularFuenteLuminosaDireccional(colorDePartida);
     //return vec4(0,0,0,1);
+}
+
+subroutine( calcularColor )
+vec4 colorModoLuzTexturaNormal (vec4 colorDePartida) {
+    return calcularFuenteLuminosaDireccionalNormalMapping();
 }
 
 void main () {

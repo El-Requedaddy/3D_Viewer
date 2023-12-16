@@ -173,7 +173,7 @@ void renderizarInterfaz() {
     ImGui::NewFrame();
 
     // Creo el menú desplegable
-    ImGui::SetNextWindowSize(ImVec2(300,100));
+    ImGui::SetNextWindowSize(ImVec2(300,140));
     if (ImGui::Begin("Menú Principal", NULL, ImGuiWindowFlags_NoCollapse)) {
         if (ImGui::BeginMenu("Añadir")) {
             if (ImGui::MenuItem("Añadir luz puntual")) {
@@ -203,6 +203,9 @@ void renderizarInterfaz() {
             if (ImGui::MenuItem("Relleno")) {
                 PAG::Renderer::GetInstancia()->setTipoRenderizadoRelleno();
             }
+            if (ImGui::MenuItem("Relleno con mapeado normal")) {
+                PAG::Renderer::GetInstancia()->setTipoRenderizadoRellenoMapeadoNormal();
+            }
             ImGui::EndMenu();
         }
         if (ImGui::BeginMenu("Alternar muestra de modelo")) {
@@ -227,11 +230,13 @@ void renderizarInterfaz() {
                 static float brillo;
                 static char path[256] = "";
                 static char rutaTextura[256] = "";
+                static char rutaNormal[256] = "";
 
                 ImGui::InputFloat3("Posición", glm::value_ptr(posicion));
                 ImGui::InputFloat3("Escalado", glm::value_ptr(escalado));
                 ImGui::InputText("Nombre de modelo", path, sizeof(path));
                 ImGui::InputText("Nombre de textura", rutaTextura, sizeof(rutaTextura));
+                ImGui::InputText("Nombre de mapeado normal", rutaNormal, sizeof(rutaNormal));
                 ImGui::InputFloat3("Componente Ambiente", glm::value_ptr(componenteAmbiente));
                 ImGui::InputFloat3("Componente Difuso", glm::value_ptr(componenteDifuso));
                 ImGui::InputFloat3("Componente Especular", glm::value_ptr(componenteEspecular));
@@ -241,10 +246,21 @@ void renderizarInterfaz() {
                     std::string modelo = path;
                     modelo = "Modelos/" + modelo + ".obj";
                     std::string textura = rutaTextura;
+                    std::string mapaNormal = rutaNormal;
                     glm::mat4 matrizModelado = glm::translate(glm::mat4(1.0f), posicion);
                     matrizModelado = glm::scale(matrizModelado, escalado);
-                    PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, "Texturas/" + textura + ".png", brillo,
-                                                               componenteAmbiente, componenteDifuso, componenteEspecular);
+
+                    // Si no se escribe ruta de textura mandamos cadena vacia, no rellenamos con ruta
+                    if (textura == "") {
+                        PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, rutaTextura, rutaNormal, brillo,
+                                                                   componenteAmbiente, componenteDifuso, componenteEspecular);
+                    } else if (mapaNormal == "") {
+                        PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, "Texturas/" + textura + ".png", mapaNormal, brillo,
+                                                                   componenteAmbiente, componenteDifuso, componenteEspecular);
+                    } else {
+                        PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, "Texturas/" + textura + ".png", "Texturas/" + mapaNormal + ".png", brillo,
+                                                                   componenteAmbiente, componenteDifuso, componenteEspecular);
+                    }
                     popupAnadirModelo = false;
                 }
 

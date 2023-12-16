@@ -157,9 +157,9 @@ PAG::Renderer::~Renderer() {
  * @post Se asignan los datos del modelo a los arrays necesarios.
  * @post La textura se asigna al modelo mediante el constructor.
  */
-void PAG::Renderer::crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, float brillo, glm::vec3 colorAmbiental,
+void PAG::Renderer::crearModelo(const char *path, glm::mat4 matrizModelado, std::string rutaTextura, std::string rutaNormal, float brillo, glm::vec3 colorAmbiental,
                                 glm::vec3 componenteDifuso, glm::vec3 exponenteEspecular) {
-    gestorModelos->creaModelo(path, matrizModelado, rutaTextura, brillo, colorAmbiental, componenteDifuso, exponenteEspecular);
+    gestorModelos->creaModelo(path, matrizModelado, rutaTextura, rutaNormal, brillo, colorAmbiental, componenteDifuso, exponenteEspecular);
     asignarModeloArrays();
 }
 
@@ -197,7 +197,14 @@ void PAG::Renderer::dibujadoModelos() {
             else {
                 glBlendFunc ( GL_SRC_ALPHA, GL_ONE );
             }
+
             for ( int i = 0; i < modelos.size (); i++ ) {
+
+                // Cálculo general de todos los shaders
+                glm::mat4 matrizModelado = modelos[i]->getMatrizModeladoModelo ();
+                glm::mat4 matrizModeladoVision = camara->getMatrizVision () * matrizModelado;
+                glm::mat4 matrizModeladoComposicion = camara->getMatrizProyeccion () * camara->getMatrizVision () * matrizModelado;
+
 
                 // Obtenemos uniformes de las luces y asignamos dichos uniforms en función de las luces introducidas en escena
                 if (lucesEscena[j]->getTipoLuz() == TipoLuz::AMBIENTE) {
@@ -208,6 +215,7 @@ void PAG::Renderer::dibujadoModelos() {
                     unsigned int posicionUniform = shader->getUniform ( "posicion" );
                     unsigned int IdUniform = shader->getUniform ( "Id" );
                     unsigned int IsUniform = shader->getUniform ( "Is" );
+                    unsigned int luzPosUniform = shader->getUniform ( "luzPos" ); // Vertex para el normal mapping
 
                     // Vinculamos las uniform de las luces
                     glm::vec3 posicion = glm::vec3((camara->getMatrizVision()) * glm::vec4(lucesEscena[j]->getPosicion(), 1.0));
@@ -217,10 +225,15 @@ void PAG::Renderer::dibujadoModelos() {
                     glUniform3fv ( IdUniform, 1, glm::value_ptr ( lucesEscena[j]->getId () ) );
                     glUniform3fv ( IsUniform, 1, glm::value_ptr ( lucesEscena[j]->getIs () ) );
 
+                    unsigned int matrizTraspuetaInversaUniform = shader->getUniform ( "matrizMVit" );
+                    glm::mat4 matrizMVit = glm::transpose(glm::inverse(matrizModeladoVision)); // Traspuesta de la inversa de la matriz de modelado-vision
+                    glUniformMatrix4fv ( matrizTraspuetaInversaUniform, 1, GL_FALSE, glm::value_ptr ( matrizMVit ) );
+
                 } else if (lucesEscena[j]->getTipoLuz() == TipoLuz::DIRECCIONAL) {
                     unsigned int posicionUniform = shader->getUniform ( "direccion" );
                     unsigned int IdUniform = shader->getUniform ( "Id" );
                     unsigned int IsUniform = shader->getUniform ( "Is" );
+                    unsigned int luzPosUniform = shader->getUniform ( "luzDir" ); // Vertex para el normal mapping
                     // Vinculamos las uniform de las luces
                     glm::vec3 posicion = glm::vec3((camara->getMatrizVision()) * glm::vec4(lucesEscena[j]->getDireccion(), 1.0));
                     glm::vec3 posicionId = lucesEscena[j]->getId ();
@@ -228,6 +241,10 @@ void PAG::Renderer::dibujadoModelos() {
                     glUniform3fv ( posicionUniform, 1, glm::value_ptr ( posicion ) );
                     glUniform3fv ( IdUniform, 1, glm::value_ptr ( lucesEscena[j]->getId () ) );
                     glUniform3fv ( IsUniform, 1, glm::value_ptr ( lucesEscena[j]->getIs () ) );
+
+                    unsigned int matrizTraspuetaInversaUniform = shader->getUniform ( "matrizMVit" );
+                    glm::mat4 matrizMVit = glm::transpose(glm::inverse(matrizModeladoVision)); // Traspuesta de la inversa de la matriz de modelado-vision
+                    glUniformMatrix4fv ( matrizTraspuetaInversaUniform, 1, GL_FALSE, glm::value_ptr ( matrizMVit ) );
                 }
 
 
@@ -240,10 +257,6 @@ void PAG::Renderer::dibujadoModelos() {
                 unsigned int coeficienteDifuso = shader->getUniform ( "Ks" );
                 unsigned int intensidadEspecular = shader->getUniform ( "Kd" );
                 unsigned int brilloUniform = shader->getUniform ( "brillo" );
-
-                glm::mat4 matrizModelado = modelos[i]->getMatrizModeladoModelo ();
-                glm::mat4 matrizModeladoVision = camara->getMatrizVision () * matrizModelado;
-                glm::mat4 matrizModeladoComposicion = camara->getMatrizProyeccion () * camara->getMatrizVision () * matrizModelado;
 
                 // Cargo materiales del modelo a renderizar
                 glm::vec3 Ka = modelos[i]->getColorAmbiente ();
@@ -260,11 +273,12 @@ void PAG::Renderer::dibujadoModelos() {
                 glUniform1f(brilloUniform, brillo);
 
                 // Activamos la textura y la preparamos
-                activarTextura(modelos[i]->getIdTextura(),shader->getIdSp());
+                gestorModelos->activarTexturasModelo(shader->getIdSp(), i);
 
                 renderizarEscena ( modelos[i] );
 
-                desactivarTextura(modelos[i]->getIdTextura(),shader->getIdSp());
+                // Desactivamos la textura
+                gestorModelos->desactivarTexturasModelo(shader->getIdSp(), i);
             }
         }
     }
@@ -314,6 +328,12 @@ void PAG::Renderer::InicializacionArraysModeloMalla(std::vector<Vertice> vertice
     // vertex texture coords
     glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertice), (void*)offsetof(Vertice, TexCoords));
+    // vertex tangent
+    glEnableVertexAttribArray(3);
+    glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertice), (void*)offsetof(Vertice, Tangente));
+    // vertex bitangent
+    glEnableVertexAttribArray(4);
+    glVertexAttribPointer(4, 3, GL_FLOAT, GL_FALSE, sizeof(Vertice), (void*)offsetof(Vertice, Bitangente));
 
     glBindVertexArray(0);
 }
@@ -388,6 +408,11 @@ void PAG::Renderer::setTipoRenderizadoRelleno() {
     actualizarSubrutinasShaders();
 }
 
+void PAG::Renderer::setTipoRenderizadoRellenoMapeadoNormal() {
+    renderizado = rellenoNormales;
+    actualizarSubrutinasShaders();
+}
+
 void PAG::Renderer::setTipoCalculoColorMaterial() {
     modoCalculoColor = material;
     actualizarSubrutinasShaders();
@@ -421,6 +446,7 @@ void PAG::Renderer::actualizarSubrutinasShaders() {
             shaderAmbiental->setearSubrutina("uniformEleccionColor", "colorTextura", GL_FRAGMENT_SHADER);
             shaderDireccional->setearSubrutina("uniformEleccionColor", "colorTextura", GL_FRAGMENT_SHADER);
             break;
+
     }
 
     switch (renderizado) {
@@ -433,31 +459,13 @@ void PAG::Renderer::actualizarSubrutinasShaders() {
             shaderPuntual->setearSubrutina("uniformColorElegido", "colorModoAlambre", GL_FRAGMENT_SHADER);
             shaderAmbiental->setearSubrutina("uniformColorElegido", "colorModoAlambre", GL_FRAGMENT_SHADER);
             shaderDireccional->setearSubrutina("uniformColorElegido", "colorModoAlambre", GL_FRAGMENT_SHADER);
+            break;
+        case rellenoNormales:
+            shaderPuntual->setearSubrutina("uniformColorElegido", "colorModoLuzTexturaNormal", GL_FRAGMENT_SHADER);
+            shaderAmbiental->setearSubrutina("uniformColorElegido", "colorModoLuzTexturaNormal", GL_FRAGMENT_SHADER);
+            shaderDireccional->setearSubrutina("uniformColorElegido", "colorModoLuzTexturaNormal", GL_FRAGMENT_SHADER);
+            break;
     }
-}
-
-GLuint PAG::Renderer::getIdVao() const {
-    return idVAO;
-}
-
-void PAG::Renderer::setIdVao(GLuint idVao) {
-    idVAO = idVao;
-}
-
-GLuint PAG::Renderer::getIdVbo() const {
-    return idVBO;
-}
-
-void PAG::Renderer::setIdVbo(GLuint idVbo) {
-    idVBO = idVbo;
-}
-
-GLuint PAG::Renderer::getIdIbo() const {
-    return idIBO;
-}
-
-void PAG::Renderer::setIdIbo(GLuint idIbo) {
-    idIBO = idIbo;
 }
 
 void PAG::Renderer::inicializarShaders() {
@@ -465,9 +473,9 @@ void PAG::Renderer::inicializarShaders() {
     shaderAmbiental = new ShaderHandler();
     shaderAmbiental->creaShaderProgram("pag03-vs.glsl" ,"pag03-fs.glsl");
     shaderPuntual = new ShaderHandler();
-    shaderPuntual->creaShaderProgram("pag03-vs.glsl", "pag03-fs-puntualLightShader.glsl");
+    shaderPuntual->creaShaderProgram("pag03-vs-luzPuntual.glsl", "pag03-fs-puntualLightShader.glsl");
     shaderDireccional = new ShaderHandler();
-    shaderDireccional->creaShaderProgram("pag03-vs.glsl", "pag03-fs-directionalLightShader.glsl");
+    shaderDireccional->creaShaderProgram("pag03-vs-luzDireccional.glsl", "pag03-fs-directionalLightShader.glsl");
 }
 
 void PAG::Renderer::crearLuzPuntual(glm::vec3 colorDifuso, glm::vec3 colorEspecular, glm::vec3 posicion) {
