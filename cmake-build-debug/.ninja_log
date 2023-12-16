@@ -41,3 +41,10 @@
 15	2004	7244329198350109	CMakeFiles/3D_Viewer.dir/program/main.cpp.obj	7ec4a933c2076007
 6	2201	7244329200304882	CMakeFiles/3D_Viewer.dir/program/Renderer.cpp.obj	f1a2a90de631b54c
 2201	74587	7244329923757139	3D_Viewer.exe	2d364d4a9c277e9e
+18	1850	7244440829531439	CMakeFiles/3D_Viewer.dir/program/Camara.cpp.obj	2ec6ff10c5d6c1c9
+23	2198	7244440833011733	CMakeFiles/3D_Viewer.dir/program/ShaderHandler.cpp.obj	9266510fe7a8477c
+12	2600	7244440836971329	CMakeFiles/3D_Viewer.dir/program/main.cpp.obj	7ec4a933c2076007
+6	2699	7244440838018531	CMakeFiles/3D_Viewer.dir/program/Renderer.cpp.obj	f1a2a90de631b54c
+6	1278	7244441011935238	CMakeFiles/3D_Viewer.dir/program/GestorModelos.cpp.obj	5cf9b7ead65661cc
+12	1432	7244441013461151	CMakeFiles/3D_Viewer.dir/program/Modelos.cpp.obj	84e4449e6b8fce7d
+1432	112330	7244442121979464	3D_Viewer.exe	2d364d4a9c277e9e
