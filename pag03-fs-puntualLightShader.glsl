@@ -37,19 +37,18 @@ vec4 calcularFuenteLuminosaPuntual (vec4 color) {
     return vec4(suma, 1.0);
 }
 
-vec4 calcularFuenteLuminosaPuntualNormalMapping () {
-    vec4 color = texture(muestreadorNormal, entrada.cTexturaV);
+vec4 calcularFuenteLuminosaPuntualNormalMapping (vec4 color) {
     vec4 normal = 2 * (texture (muestreadorNormal, entrada.cTexturaV) - 0.5);
-    vec3 n = normalize ( normal.rgb );
+    vec3 nor = normalize ( normal.rgb );
 
     vec3 l = normalize ( entrada.posLuzTg - entrada.posicionTg );
     vec3 v = normalize ( -entrada.posicionTg );
-    vec3 r = reflect ( -l, n );
+    vec3 r = reflect ( -l, nor );
 
-    vec4 colorD = vec4 ( Id, 1 ) * color * max ( dot ( l, n ), 0 );
+    vec4 colorD = vec4 ( Id, 1 ) * color * max ( dot ( l, nor ), 0 );
     vec4 colorS = vec4 ( Is, 1 ) * vec4(Ks, 1) * pow ( max ( dot ( r, v ), 0 ), brillo );
 
-    return ( colorD + colorS );
+    return vec4(( colorD + colorS ).rgb, 1);
 }
 
 // Definición de subrutinas
@@ -84,7 +83,7 @@ vec4 colorModoLuz (vec4 colorDePartida) {
 
 subroutine( calcularColor )
 vec4 colorModoLuzTexturaNormal (vec4 colorDePartida) {
-    return calcularFuenteLuminosaPuntualNormalMapping();
+    return calcularFuenteLuminosaPuntualNormalMapping(colorDePartida);
 }
 
 void main () {

@@ -27,7 +27,7 @@ void main () {
 	vec3 tangenteMV = normalize ( vec3 ( matrizMVit * vec4 ( tangente, 0 ) ) );
 	vec3 bitangenteMV = normalize ( cross ( normalMV, tangenteMV ) );
 	mat3 TBN = transpose ( mat3 ( tangenteMV, bitangenteMV, normalMV ) );
-	salida.posicionTg = TBN * vec3 ( matrizModeladoVision * vec4 ( posicion, 1 ) );
+	salida.posicionTg = TBN * vec3 ( matrizModeladoVision * vec4 ( luzDir, 1 ) );
 	salida.dirLuzTg = TBN * luzDir;
 
 	salida.normalV = normal;

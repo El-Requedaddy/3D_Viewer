@@ -230,15 +230,18 @@ void PAG::Renderer::dibujadoModelos() {
                     glUniformMatrix4fv ( matrizTraspuetaInversaUniform, 1, GL_FALSE, glm::value_ptr ( matrizMVit ) );
 
                 } else if (lucesEscena[j]->getTipoLuz() == TipoLuz::DIRECCIONAL) {
-                    unsigned int posicionUniform = shader->getUniform ( "direccion" );
+                    unsigned int direccionUniform = shader->getUniform ( "direccion" );
                     unsigned int IdUniform = shader->getUniform ( "Id" );
                     unsigned int IsUniform = shader->getUniform ( "Is" );
-                    unsigned int luzPosUniform = shader->getUniform ( "luzDir" ); // Vertex para el normal mapping
+                    unsigned int luzDirUniform = shader->getUniform ("luzDir" ); // Vertex para el normal mapping
                     // Vinculamos las uniform de las luces
-                    glm::vec3 posicion = glm::vec3((camara->getMatrizVision()) * glm::vec4(lucesEscena[j]->getDireccion(), 1.0));
+                    glm::vec3 direccion = glm::vec3((camara->getMatrizVision()) * glm::vec4(lucesEscena[j]->getDireccion(), 1.0));
+                    glm::vec3 direccionFragmento = glm::normalize(direccion);
+                    direccion = glm::normalize(direccion);
                     glm::vec3 posicionId = lucesEscena[j]->getId ();
                     glm::vec3 posicionIS = lucesEscena[j]->getIs ();
-                    glUniform3fv ( posicionUniform, 1, glm::value_ptr ( posicion ) );
+                    glUniform3fv (luzDirUniform, 1, glm::value_ptr (direccion ) );
+                    glUniform3fv (direccionUniform, 1, glm::value_ptr (direccionFragmento ) );
                     glUniform3fv ( IdUniform, 1, glm::value_ptr ( lucesEscena[j]->getId () ) );
                     glUniform3fv ( IsUniform, 1, glm::value_ptr ( lucesEscena[j]->getIs () ) );
 
