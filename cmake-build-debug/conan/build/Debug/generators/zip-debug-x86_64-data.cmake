@@ -6,7 +6,7 @@ set(kuba-zip_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(kuba-zip_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/kuba-282a1652f7463/p")
+set(kuba-zip_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/kuba-2f67d72086299/p")
 set(kuba-zip_BUILD_MODULES_PATHS_DEBUG )
 
 

@@ -2,7 +2,7 @@
 #############################################################################################
 
 set(assimp_COMPONENT_NAMES "")
-list(APPEND assimp_FIND_DEPENDENCY_NAMES minizip pugixml zip poly2tri RapidJSON ZLIB draco clipper stb openddlparser)
+list(APPEND assimp_FIND_DEPENDENCY_NAMES minizip pugixml zip poly2tri RapidJSON ZLIB draco clipper openddlparser)
 list(REMOVE_DUPLICATES assimp_FIND_DEPENDENCY_NAMES)
 set(minizip_FIND_MODE "NO_MODULE")
 set(pugixml_FIND_MODE "NO_MODULE")
@@ -12,12 +12,11 @@ set(RapidJSON_FIND_MODE "NO_MODULE")
 set(ZLIB_FIND_MODE "NO_MODULE")
 set(draco_FIND_MODE "NO_MODULE")
 set(clipper_FIND_MODE "NO_MODULE")
-set(stb_FIND_MODE "NO_MODULE")
 set(openddlparser_FIND_MODE "NO_MODULE")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(assimp_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/assim1e0b242651fb1/p")
+set(assimp_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/assima06af829737fa/p")
 set(assimp_BUILD_MODULES_PATHS_DEBUG )
 
 

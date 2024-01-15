@@ -46,6 +46,7 @@ namespace PAG {
             ShaderHandler* shaderAmbiental;
             ShaderHandler* shaderPuntual;
             ShaderHandler* shaderDireccional;
+            ShaderHandler* shaderSpot;
             std::vector<Luz*> lucesEscena;
 
             private:

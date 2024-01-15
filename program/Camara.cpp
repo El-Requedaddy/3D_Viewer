@@ -59,7 +59,6 @@ void PAG::Camara::procesarMovimiento(double xpos, double ypos) {
 void PAG::Camara::movimientoArriba(float velocidadCamara) {
     glm::vec3 delante = velocidadCamara * vectorLookAt;
     posicionCamara += delante;
-    std::cout << "La posicion de la camara es: " << posicionCamara.x << "," << posicionCamara.y << ", " << posicionCamara.z;
 }
 
 void PAG::Camara::movimientoAbajo(float velocidadCamara) {

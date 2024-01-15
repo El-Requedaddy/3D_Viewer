@@ -6,7 +6,7 @@ set(rapidjson_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(rapidjson_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/rapid4cabb31a09329/p")
+set(rapidjson_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/rapid4cabb31a09329/p")
 set(rapidjson_BUILD_MODULES_PATHS_DEBUG )
 
 

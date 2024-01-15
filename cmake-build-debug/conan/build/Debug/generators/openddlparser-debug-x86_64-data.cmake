@@ -6,7 +6,7 @@ set(openddl-parser_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(openddl-parser_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/opendd1ad6de6350a4/p")
+set(openddl-parser_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/opend2d652052fa042/p")
 set(openddl-parser_BUILD_MODULES_PATHS_DEBUG )
 
 

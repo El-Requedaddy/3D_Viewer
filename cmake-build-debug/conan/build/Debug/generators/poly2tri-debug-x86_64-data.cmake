@@ -6,7 +6,7 @@ set(poly2tri_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(poly2tri_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/poly278e341adf315a/p")
+set(poly2tri_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/poly242f374bf282e1/p")
 set(poly2tri_BUILD_MODULES_PATHS_DEBUG )
 
 

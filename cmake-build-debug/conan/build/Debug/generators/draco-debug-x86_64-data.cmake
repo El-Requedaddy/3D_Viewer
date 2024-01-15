@@ -6,7 +6,7 @@ set(draco_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(draco_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/dracoe959de8e6ac3f/p")
+set(draco_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/draco0ca26b2bc0d20/p")
 set(draco_BUILD_MODULES_PATHS_DEBUG )
 
 

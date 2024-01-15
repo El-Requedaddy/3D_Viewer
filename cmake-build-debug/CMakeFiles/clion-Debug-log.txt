@@ -1,14 +1,14 @@
-"C:\Program Files\JetBrains\CLion 2023.2.1\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2023.2.1/bin/ninja/win/x64/ninja.exe" -G Ninja -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=conan_provider.cmake -S D:\3D_Viewer -B D:\3D_Viewer\cmake-build-debug
+"C:\Users\Requedaddy\AppData\Local\JetBrains\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PROJECT_TOP_LEVEL_INCLUDES=conan_provider.cmake -G "CodeBlocks - MinGW Makefiles" -S C:\3D_Viewer -B C:\3D_Viewer\cmake-build-debug
 -- CMake-Conan: first find_package() found. Installing dependencies with Conan
 -- CMake-Conan: Checking if a default profile exists
-C:\Users\carlo\.conan2\profiles\default
+C:\Users\Requedaddy\.conan2\profiles\default
 -- CMake-Conan: cmake_system_name=Windows
 -- CMake-Conan: cmake_system_processor=x86_64
 -- CMake-Conan: CMake compiler=GNU
 -- CMake-Conan: CMake compiler version=13.1.0
 -- CMake-Conan: [settings] compiler=gcc
 -- CMake-Conan: [settings] compiler.version=13
--- CMake-Conan: Creating profile D:/3D_Viewer/cmake-build-debug/conan_host_profile
+-- CMake-Conan: Creating profile C:/3D_Viewer/cmake-build-debug/conan_host_profile
 -- CMake-Conan: Profile: 
 [settings]
 arch=x86_64
@@ -19,11 +19,11 @@ compiler.cppstd=17
 compiler.libcxx=libstdc++11
 build_type=Debug
 [conf]
-tools.cmake.cmaketoolchain:generator=Ninja
-tools.build:compiler_executables={"c":"C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/gcc.exe","cpp":"C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/g++.exe"}
+tools.cmake.cmaketoolchain:generator=MinGW Makefiles
+tools.build:compiler_executables={"c":"C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc.exe","cpp":"C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/g++.exe"}
 
 -- CMake-Conan: Installing single configuration Debug
--- CMake-Conan: conan install D:/3D_Viewer -of=D:/3D_Viewer/cmake-build-debug/conan --profile:host=default;--profile:host=D:/3D_Viewer/cmake-build-debug/conan_host_profile;--profile:build=default;--build=missing
+-- CMake-Conan: conan install C:/3D_Viewer -of=C:/3D_Viewer/cmake-build-debug/conan --profile:host=default;--profile:host=C:/3D_Viewer/cmake-build-debug/conan_host_profile;--profile:build=default;--build=missing
 
 ======== Input profiles ========
 Profile host:
@@ -36,31 +36,32 @@ compiler.libcxx=libstdc++11
 compiler.version=13
 os=Windows
 [conf]
-tools.cmake.cmaketoolchain:generator=Ninja
-tools.build:compiler_executables={'c': 'C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/gcc.exe', 'cpp': 'C:/Program Files/JetBrains/CLion 2023.2.1/bin/mingw/bin/g++.exe'}
+tools.cmake.cmaketoolchain:generator=MinGW Makefiles
+tools.build:compiler_executables={'c': 'C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/gcc.exe', 'cpp': 'C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/g++.exe'}
 
 Profile build:
 [settings]
 arch=x86_64
 build_type=Release
-compiler=gcc
-compiler.cppstd=gnu17
-compiler.libcxx=libstdc++11
-compiler.version=13
+compiler=msvc
+compiler.cppstd=14
+compiler.runtime=dynamic
+compiler.runtime_type=Release
+compiler.version=193
 os=Windows
 
 
 ======== Computing dependency graph ========
 Graph root
-    conanfile.py: D:/3D_Viewer\conanfile.py
+    conanfile.py: C:/3D_Viewer\conanfile.py
 Requirements
-    assimp/5.2.2#9f05c1993aa6dc058055d56ae9fef3cc - Cache
+    assimp/5.2.2#0aebc0ece47c1e137cf155939151d404 - Cache
     bzip2/1.0.8#411fc05e80d47a89045edc1ee6f23c1d - Cache
     clipper/4.10.0#162645ae35933cfb009ad1be1b6f9b6b - Cache
     draco/1.5.6#c4fd529402e7954b0ed2305a386b0973 - Cache
-    glew/2.2.0#1113ff08038a29c8a70e06b42a426911 - Cache
-    glfw/3.3.8#545c12c3dd621f4cb64d5d8c5f469293 - Cache
-    glm/cci.20230113#3e19f4607c4d22cee611b572ce677479 - Cache
+    glew/2.2.0#e5519ddcf52267be816b50d3dfa14a23 - Cache
+    glfw/3.3.8#fa80260213e8f8da1315ba152e023e3e - Cache
+    glm/cci.20230113#c9c89bea128786a245028f0cb4c1936d - Cache
     glu/system#ee50fc2ade0e1c0c8ebb3be3ea60e0f5 - Cache
     imgui/1.89.9#f3ef880f1e64558b75b701ea2d4701aa - Cache
     kuba-zip/0.2.6#b44e80e10f13234bbcfbad1ce82bbb7e - Cache
@@ -70,7 +71,7 @@ Requirements
     poly2tri/cci.20130502#6f2ab4d3b3c07dc8d0b6282c14521b22 - Cache
     pugixml/1.13#f615c1fcec55122b2e177d17061276e7 - Cache
     rapidjson/cci.20220822#8ca51918340f3a21127822258e95ec0f - Cache
-    stb/cci.20220909#1c47474f095ef8cd9e4959558525b827 - Cache
+    stb/cci.20220909#d731359593a5b94567c30fd1df244141 - Cache
     utfcpp/3.2.3#bd19718a5088de9d38cb662b87b4f194 - Cache
     zlib/1.3#06023034579559bb64357db3a53f88a4 - Cache
 Resolved version ranges
@@ -78,67 +79,65 @@ Resolved version ranges
 
 ======== Computing necessary packages ========
 Requirements
-    assimp/5.2.2#9f05c1993aa6dc058055d56ae9fef3cc:a4102778311b526f9f993adb20ce7612ab212499#e9068cb967a99bcc6f79503213edfb20 - Cache
-    bzip2/1.0.8#411fc05e80d47a89045edc1ee6f23c1d:2449118e33a88024cb4bc94dbbc617d96223b745#45d0631c6b39e0b73a8a0c30699d45ff - Cache
-    clipper/4.10.0#162645ae35933cfb009ad1be1b6f9b6b:26c25a003bb3b7e4442c6036ea3f34cf49de4264#32286f4333192a41ff9af45777344841 - Cache
-    draco/1.5.6#c4fd529402e7954b0ed2305a386b0973:df850cabab5f49cfaa048b0611326445833c2a4b#be1ee5a7115dd84c277ad47c4f9c435e - Cache
-    glew/2.2.0#1113ff08038a29c8a70e06b42a426911:c6549204e854acf814580fa76121512bcfd64985#929889a2e1ee23f5a9ecda85983533fa - Cache
-    glfw/3.3.8#545c12c3dd621f4cb64d5d8c5f469293:8017d78d70cd810fbc93ef6c919368c5a0f66568#dc30e95d15f9264fb658426e7a64a209 - Cache
-    glm/cci.20230113#3e19f4607c4d22cee611b572ce677479:da39a3ee5e6b4b0d3255bfef95601890afd80709#6e0f3e7e82ccc211e8cc3c012d8c42ef - Cache
+    assimp/5.2.2#0aebc0ece47c1e137cf155939151d404:d0f58568ac9f89efd55b0471634c967263018ab6#68fcf419a2143183f181d56412475b51 - Cache
+    bzip2/1.0.8#411fc05e80d47a89045edc1ee6f23c1d:2449118e33a88024cb4bc94dbbc617d96223b745#95643a56b649d53d4403b2ce92179474 - Cache
+    clipper/4.10.0#162645ae35933cfb009ad1be1b6f9b6b:26c25a003bb3b7e4442c6036ea3f34cf49de4264#fa7b106b5cf53c8baacab6fd94a3e279 - Cache
+    draco/1.5.6#c4fd529402e7954b0ed2305a386b0973:df850cabab5f49cfaa048b0611326445833c2a4b#ce6477e50428da36d7ff9c010ea4a2c7 - Cache
+    glew/2.2.0#e5519ddcf52267be816b50d3dfa14a23:c6549204e854acf814580fa76121512bcfd64985#ddeb439667bf418af11a181a7409d8a0 - Cache
+    glfw/3.3.8#fa80260213e8f8da1315ba152e023e3e:8017d78d70cd810fbc93ef6c919368c5a0f66568#a72955e1cead5abb9648f543efb73fa8 - Cache
+    glm/cci.20230113#c9c89bea128786a245028f0cb4c1936d:da39a3ee5e6b4b0d3255bfef95601890afd80709#6e0f3e7e82ccc211e8cc3c012d8c42ef - Cache
     glu/system#ee50fc2ade0e1c0c8ebb3be3ea60e0f5:da39a3ee5e6b4b0d3255bfef95601890afd80709#0ba8627bd47edc3a501e8f0eb9a79e5e - Cache
-    imgui/1.89.9#f3ef880f1e64558b75b701ea2d4701aa:26c25a003bb3b7e4442c6036ea3f34cf49de4264#41b11a6e64f9ad8e142aa3331d916a49 - Cache
-    kuba-zip/0.2.6#b44e80e10f13234bbcfbad1ce82bbb7e:f60e50a74ab05a616895712be87aa8c9377863ad#d1fa77c239b985e9ba79d52881f5c017 - Cache
-    minizip/1.2.13#75d20b6a37ef70126334467f61acadde:81336e2e4e13faf90b2b433cb6e37ecb7b617910#064e50d9579a292a35dd77fbce38c502 - Cache
-    openddl-parser/0.5.0#a99211fb71f0cdd2edd3ab5885e68ee1:26c25a003bb3b7e4442c6036ea3f34cf49de4264#5396f6c5bf6197f4dc8c41de2fdad882 - Cache
+    imgui/1.89.9#f3ef880f1e64558b75b701ea2d4701aa:26c25a003bb3b7e4442c6036ea3f34cf49de4264#57463aca6295af79580ce7c29e01e6a1 - Cache
+    kuba-zip/0.2.6#b44e80e10f13234bbcfbad1ce82bbb7e:f60e50a74ab05a616895712be87aa8c9377863ad#6e67b4d1796cbc55fed1aaf6e50292f7 - Cache
+    minizip/1.2.13#75d20b6a37ef70126334467f61acadde:81336e2e4e13faf90b2b433cb6e37ecb7b617910#005a10573ec11cabbe63c2c9553b8039 - Cache
+    openddl-parser/0.5.0#a99211fb71f0cdd2edd3ab5885e68ee1:26c25a003bb3b7e4442c6036ea3f34cf49de4264#65ef1103fd0e135982785d77a87c9f40 - Cache
     opengl/system#b29589c04d6df84c110d6acb066ab653:da39a3ee5e6b4b0d3255bfef95601890afd80709#0ba8627bd47edc3a501e8f0eb9a79e5e - Cache
-    poly2tri/cci.20130502#6f2ab4d3b3c07dc8d0b6282c14521b22:26c25a003bb3b7e4442c6036ea3f34cf49de4264#6904bc8dc381323fd436ea540b967f9e - Cache
-    pugixml/1.13#f615c1fcec55122b2e177d17061276e7:04191df68bc45d3ea9fc39b45c996cadc5dbd9e2#a15881b71fa3654a36ccbfe0b9ff39d5 - Cache
+    poly2tri/cci.20130502#6f2ab4d3b3c07dc8d0b6282c14521b22:26c25a003bb3b7e4442c6036ea3f34cf49de4264#7f64bd519046b19523172fb52e0ac78e - Cache
+    pugixml/1.13#f615c1fcec55122b2e177d17061276e7:04191df68bc45d3ea9fc39b45c996cadc5dbd9e2#86cee75d32fcf81960d62ab1376b132e - Cache
     rapidjson/cci.20220822#8ca51918340f3a21127822258e95ec0f:da39a3ee5e6b4b0d3255bfef95601890afd80709#a99fd0306f219909b3c1b1059abc47e9 - Cache
-    stb/cci.20220909#1c47474f095ef8cd9e4959558525b827:da39a3ee5e6b4b0d3255bfef95601890afd80709#cab2e5cf0f4391f87945a304034a4e5d - Cache
-    zlib/1.3#06023034579559bb64357db3a53f88a4:f60e50a74ab05a616895712be87aa8c9377863ad#54de92e28d76f4bd23c25f298ff9fea3 - Cache
+    zlib/1.3#06023034579559bb64357db3a53f88a4:f60e50a74ab05a616895712be87aa8c9377863ad#8d1ed077c5f8e795aaeed032bf8b5204 - Cache
 Skipped binaries
-    utfcpp/3.2.3
+    stb/cci.20220909, utfcpp/3.2.3
 
 ======== Installing packages ========
-bzip2/1.0.8: Already installed! (1 of 18)
-clipper/4.10.0: Already installed! (2 of 18)
-draco/1.5.6: Already installed! (3 of 18)
-glm/cci.20230113: Already installed! (4 of 18)
-imgui/1.89.9: Already installed! (5 of 18)
-imgui/1.89.9: Appending PATH env var with : C:\Users\carlo\.conan2\p\b\imgui41f8f659dc338\p\bin
-kuba-zip/0.2.6: Already installed! (6 of 18)
-openddl-parser/0.5.0: Already installed! (7 of 18)
-opengl/system: Already installed! (8 of 18)
-poly2tri/cci.20130502: Already installed! (9 of 18)
-pugixml/1.13: Already installed! (10 of 18)
-rapidjson/cci.20220822: Already installed! (11 of 18)
-stb/cci.20220909: Already installed! (12 of 18)
-zlib/1.3: Already installed! (13 of 18)
-glfw/3.3.8: Already installed! (14 of 18)
-glu/system: Already installed! (15 of 18)
-minizip/1.2.13: Already installed! (16 of 18)
-assimp/5.2.2: Already installed! (17 of 18)
-glew/2.2.0: Already installed! (18 of 18)
+bzip2/1.0.8: Already installed! (1 of 17)
+clipper/4.10.0: Already installed! (2 of 17)
+draco/1.5.6: Already installed! (3 of 17)
+glm/cci.20230113: Already installed! (4 of 17)
+imgui/1.89.9: Already installed! (5 of 17)
+imgui/1.89.9: Appending PATH env var with : C:\Users\Requedaddy\.conan2\p\b\imgui8546bfb0bd167\p\bin
+kuba-zip/0.2.6: Already installed! (6 of 17)
+openddl-parser/0.5.0: Already installed! (7 of 17)
+opengl/system: Already installed! (8 of 17)
+poly2tri/cci.20130502: Already installed! (9 of 17)
+pugixml/1.13: Already installed! (10 of 17)
+rapidjson/cci.20220822: Already installed! (11 of 17)
+zlib/1.3: Already installed! (12 of 17)
+glfw/3.3.8: Already installed! (13 of 17)
+glu/system: Already installed! (14 of 17)
+minizip/1.2.13: Already installed! (15 of 17)
+assimp/5.2.2: Already installed! (16 of 17)
+glew/2.2.0: Already installed! (17 of 17)
 WARN: deprecated: Usage of deprecated Conan 1.X features that will be removed in Conan 2.X:
-WARN: deprecated:     'cpp_info.names' used in: glfw/3.3.8, openddl-parser/0.5.0, rapidjson/cci.20220822, clipper/4.10.0, zlib/1.3, kuba-zip/0.2.6, bzip2/1.0.8, glew/2.2.0
+WARN: deprecated:     'cpp_info.names' used in: bzip2/1.0.8, clipper/4.10.0, glfw/3.3.8, rapidjson/cci.20220822, zlib/1.3, kuba-zip/0.2.6, glew/2.2.0, openddl-parser/0.5.0
 WARN: deprecated:     'cpp_info.build_modules' used in: bzip2/1.0.8, glfw/3.3.8
-WARN: deprecated:     'env_info' used in: bzip2/1.0.8, imgui/1.89.9
-WARN: deprecated:     'cpp_info.filenames' used in: glew/2.2.0, opengl/system, glfw/3.3.8
+WARN: deprecated:     'env_info' used in: imgui/1.89.9, bzip2/1.0.8
+WARN: deprecated:     'cpp_info.filenames' used in: glew/2.2.0, glfw/3.3.8, opengl/system
 
 ======== Finalizing install (deploy, generators) ========
-conanfile.py: Writing generators to D:\3D_Viewer\cmake-build-debug\conan\build\Debug\generators
+conanfile.py: Writing generators to C:\3D_Viewer\cmake-build-debug\conan\build\Debug\generators
 conanfile.py: Generator 'CMakeDeps' calling 'generate()'
 conanfile.py: Calling generate()
-conanfile.py: Generators folder: D:\3D_Viewer\cmake-build-debug\conan\build\Debug\generators
+conanfile.py: Generators folder: C:\3D_Viewer\cmake-build-debug\conan\build\Debug\generators
 conanfile.py: CMakeToolchain generated: conan_toolchain.cmake
 conanfile.py: Preset 'conan-debug' added to CMakePresets.json. Invoke it manually using 'cmake --preset conan-debug' if using CMake>=3.23
-conanfile.py: If your CMake version is not compatible with CMakePresets (<3.23) call cmake like: 'cmake <path> -G Ninja -DCMAKE_TOOLCHAIN_FILE=D:\3D_Viewer\cmake-build-debug\conan\build\Debug\generators\conan_toolchain.cmake -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Debug'
+conanfile.py: If your CMake version is not compatible with CMakePresets (<3.23) call cmake like: 'cmake <path> -G "MinGW Makefiles" -DCMAKE_TOOLCHAIN_FILE=C:\3D_Viewer\cmake-build-debug\conan\build\Debug\generators\conan_toolchain.cmake -DCMAKE_SH=CMAKE_SH-NOTFOUND -DCMAKE_POLICY_DEFAULT_CMP0091=NEW -DCMAKE_BUILD_TYPE=Debug'
 conanfile.py: CMakeToolchain generated: CMakePresets.json
 conanfile.py: Generating aggregated env files
 conanfile.py: Generated aggregated env files: ['conanbuild.bat', 'conanrun.bat']
 Install finished successfully
--- CMake-Conan: CONAN_GENERATORS_FOLDER=D:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators
--- CMake-Conan: CONANFILE=D:/3D_Viewer/conanfile.py
+-- CMake-Conan: CONAN_GENERATORS_FOLDER=C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators
+-- CMake-Conan: CONANFILE=C:/3D_Viewer/conanfile.py
 -- Conan: Target declared 'glfw'
 -- CMake-Conan: find_package(opengl_system) found, 'conan install' already ran
 -- Conan: Target declared 'opengl::opengl'
@@ -156,7 +155,7 @@ Install finished successfully
 -- Conan: Target declared 'minizip::minizip'
 -- CMake-Conan: find_package(BZip2) found, 'conan install' already ran
 -- Conan: Target declared 'BZip2::BZip2'
--- Conan: Including build module from 'C:/Users/carlo/.conan2/p/b/bzip2e0b66714e23c1/p/lib/cmake/conan-official-bzip2-variables.cmake'
+-- Conan: Including build module from 'C:/Users/Requedaddy/.conan2/p/b/bzip2104f6e66968ae/p/lib/cmake/conan-official-bzip2-variables.cmake'
 -- CMake-Conan: find_package(ZLIB) found, 'conan install' already ran
 -- Conan: Target declared 'ZLIB::ZLIB'
 -- CMake-Conan: find_package(pugixml) found, 'conan install' already ran
@@ -171,12 +170,10 @@ Install finished successfully
 -- Conan: Target declared 'draco::draco'
 -- CMake-Conan: find_package(clipper) found, 'conan install' already ran
 -- Conan: Target declared 'clipper::clipper'
--- CMake-Conan: find_package(stb) found, 'conan install' already ran
--- Conan: Target declared 'stb::stb'
 -- CMake-Conan: find_package(openddlparser) found, 'conan install' already ran
 -- Conan: Target declared 'openddlparser::openddlparser'
 -- CMake-Conan: find_package(imgui) found, 'conan install' already ran
 -- Conan: Target declared 'imgui::imgui'
--- Configuring done (1.7s)
+-- Configuring done (2.1s)
 -- Generating done (0.0s)
--- Build files have been written to: D:/3D_Viewer/cmake-build-debug
+-- Build files have been written to: C:/3D_Viewer/cmake-build-debug

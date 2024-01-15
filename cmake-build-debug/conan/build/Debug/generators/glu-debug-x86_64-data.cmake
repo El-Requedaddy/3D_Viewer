@@ -8,7 +8,7 @@ set(opengl_system_FIND_MODE "NO_MODULE")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(glu_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/glucd6f31a04433f/p")
+set(glu_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/glucd6f31a04433f/p")
 set(glu_BUILD_MODULES_PATHS_DEBUG )
 
 

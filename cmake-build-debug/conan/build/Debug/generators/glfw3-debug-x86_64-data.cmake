@@ -8,7 +8,7 @@ set(opengl_system_FIND_MODE "NO_MODULE")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(glfw_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/glfw15951b9a4e9a5/p")
+set(glfw_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/glfwcb4fc5973ece6/p")
 set(glfw_BUILD_MODULES_PATHS_DEBUG )
 
 

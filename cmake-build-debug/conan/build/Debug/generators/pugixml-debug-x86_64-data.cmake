@@ -6,7 +6,7 @@ set(pugixml_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(pugixml_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/pugixb5f14d9ea4300/p")
+set(pugixml_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/pugix9c9b0266e59f7/p")
 set(pugixml_BUILD_MODULES_PATHS_DEBUG )
 
 

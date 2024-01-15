@@ -19,6 +19,7 @@ bool clickIzquierdoMantenido = false;
 bool popupLuzPuntualAbierto = false;
 bool popupLuzDireccionalAbierto = false;
 bool popupAnadirModelo = false;
+bool scrollMasTeclasDesactivadas = false; // Variable para que no interactue con la camara y demás mientras haya un popup abierto
 
 // Medida de tiempo
 float deltaTime = 0.0f;	// Tiempo entre el frame actual y el último
@@ -35,14 +36,12 @@ void window_refresh_callback ( GLFWwindow *window )
 // que se mostraba hasta ahora front. Debe ser la última orden de
 // este callback
     glfwSwapBuffers ( window ); // Esto pasaría a formar parte de la clase Renderer
-    std::cout << "Refresh callback called" << std::endl;
 }
 
 // - Esta función callback será llamada cada vez que se cambie el tamaño
 // del área de dibujo OpenGL.
 void framebuffer_size_callback ( GLFWwindow *window, int width, int height )
 { PAG::Renderer::GetInstancia()->SetViewport(0, 0, width, height);
-    std::cout << "Resize callback called" << std::endl;
 }
 
 // - Esta función callback será llamada cada vez que se pulse una tecla
@@ -51,41 +50,41 @@ void key_callback ( GLFWwindow *window, int key, int scancode, int action, int m
 { if ( key == GLFW_KEY_ESCAPE && action == GLFW_PRESS )
     { PAG::Renderer::GetInstancia()->SetWindowShouldClose(window);
     }
-    std::cout << "Key callback called" << std::endl;
 
     float velocidadCamara = 30.5f * deltaTime;
 
-    // Movimientos de camara con teclas
-    if (key == GLFW_KEY_W && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_UP, velocidadCamara);
-    }
-    if (key == GLFW_KEY_S && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_DOWN, velocidadCamara);
-    }
-    if (key == GLFW_KEY_D && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_RIGHT, velocidadCamara);
-    }
-    if (key == GLFW_KEY_A && action == GLFW_PRESS){
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_LEFT, velocidadCamara);
-    }
-    if (key == GLFW_KEY_P && action == GLFW_PRESS){ // Panorámica Izquierda
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_P, velocidadCamara);
-    }
-    if (key == GLFW_KEY_C && action == GLFW_PRESS){ // Cabeceo Izquierda
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_C, velocidadCamara);
-    }
-    if (key == GLFW_KEY_O && action == GLFW_PRESS){ // Panorámica Derecha
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_O, velocidadCamara);
-    }
-    if (key == GLFW_KEY_X && action == GLFW_PRESS){ // Cabeceo Derecha
-        PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_X, velocidadCamara);
+    if (clickIzquierdoMantenido) {
+        // Movimientos de camara con teclas
+        if (key == GLFW_KEY_W && action == GLFW_PRESS){
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_UP, velocidadCamara);
+        }
+        if (key == GLFW_KEY_S && action == GLFW_PRESS){
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_DOWN, velocidadCamara);
+        }
+        if (key == GLFW_KEY_D && action == GLFW_PRESS){
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_RIGHT, velocidadCamara);
+        }
+        if (key == GLFW_KEY_A && action == GLFW_PRESS){
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_LEFT, velocidadCamara);
+        }
+        if (key == GLFW_KEY_P && action == GLFW_PRESS){ // Panorámica Izquierda
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_P, velocidadCamara);
+        }
+        if (key == GLFW_KEY_C && action == GLFW_PRESS){ // Cabeceo Izquierda
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_C, velocidadCamara);
+        }
+        if (key == GLFW_KEY_O && action == GLFW_PRESS){ // Panorámica Derecha
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_O, velocidadCamara);
+        }
+        if (key == GLFW_KEY_X && action == GLFW_PRESS){ // Cabeceo Derecha
+            PAG::Renderer::GetInstancia()->movimientoTeclasCamara(GLFW_KEY_X, velocidadCamara);
+        }
     }
 
 }
 
 void cursor_position_callback(GLFWwindow* window, double xpos, double ypos) {
     if (clickIzquierdoMantenido) {
-        std::cout << "Detectado movimiento" << std::endl;
         PAG::Renderer::GetInstancia()->movimientoRatonCamara(xpos, ypos, clickIzquierdoMantenido);
     }
 }
@@ -100,7 +99,6 @@ void mouse_button_callback ( GLFWwindow *window, int button, int action, int mod
     {
         if (button == 0) {
             clickIzquierdoMantenido = true;
-            std::cout << "Click presionado" << std::endl;
         }
 
         if (button == GLFW_MOUSE_BUTTON_RIGHT) {
@@ -112,9 +110,6 @@ void mouse_button_callback ( GLFWwindow *window, int button, int action, int mod
             clickIzquierdoMantenido = false;
             PAG::Renderer::GetInstancia()->getCamara()->setPrimerMovimientoRaton(true);
         }
-
-
-        std::cout << "Soltado el boton: " << button << std::endl;
     }
 }
 
@@ -250,7 +245,7 @@ void renderizarInterfaz() {
                     glm::mat4 matrizModelado = glm::translate(glm::mat4(1.0f), posicion);
                     matrizModelado = glm::scale(matrizModelado, escalado);
 
-                    // Si no se escribe ruta de textura mandamos cadena vacia, no rellenamos con ruta
+                    // Si no se escribe ruta de textura mandamos cadena vacia, no rellenamos con ruta. Igual si falta mapa normal
                     if (textura == "") {
                         PAG::Renderer::GetInstancia()->crearModelo(modelo.c_str(), matrizModelado, rutaTextura, rutaNormal, brillo,
                                                                    componenteAmbiente, componenteDifuso, componenteEspecular);

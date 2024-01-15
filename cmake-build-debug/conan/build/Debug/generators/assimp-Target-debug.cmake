@@ -16,7 +16,7 @@ set_property(TARGET assimp_DEPS_TARGET
              PROPERTY INTERFACE_LINK_LIBRARIES
              $<$<CONFIG:Debug>:${assimp_FRAMEWORKS_FOUND_DEBUG}>
              $<$<CONFIG:Debug>:${assimp_SYSTEM_LIBS_DEBUG}>
-             $<$<CONFIG:Debug>:minizip::minizip;pugixml::pugixml;zip::zip;poly2tri::poly2tri;rapidjson;ZLIB::ZLIB;draco::draco;clipper::clipper;stb::stb;openddlparser::openddlparser>
+             $<$<CONFIG:Debug>:minizip::minizip;pugixml::pugixml;zip::zip;poly2tri::poly2tri;rapidjson;ZLIB::ZLIB;draco::draco;clipper::clipper;openddlparser::openddlparser>
              APPEND)
 
 ####### Find the libraries declared in cpp_info.libs, create an IMPORTED target for each one and link the

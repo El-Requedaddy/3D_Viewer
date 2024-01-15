@@ -55,11 +55,3 @@ target_link_libraries(3D_Viewer assimp::assimp)
 
 find_package(imgui)
 target_link_libraries(3D_Viewer imgui::imgui)
-
-#include(InstallRequiredSystemLibraries)
-#set(CPACK_PACKAGE_NAME "3D_Viewer")
-#set(CPACK_PROJECT_VERSION_MAJOR ${3D_Viewer_VERSION_MAJOR})
-#set(CPACK_PROJECT_VERSION_MINOR ${3D_Viewer_VERSION_MINOR})
-#set(CPACK_RESOURCE_FILE_LICENSE "${CMAKE_CURRENT_SOURCE_DIR}/License.txt")
-#set(CPACK_GENERATOR "ZIP")
-#include(CPack)

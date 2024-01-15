@@ -12,14 +12,15 @@
         {
             "name": "conan-debug",
             "displayName": "'conan-debug' config",
-            "description": "'conan-debug' configure using 'Ninja' generator",
-            "generator": "Ninja",
+            "description": "'conan-debug' configure using 'MinGW Makefiles' generator",
+            "generator": "MinGW Makefiles",
             "cacheVariables": {
+                "CMAKE_SH": "CMAKE_SH-NOTFOUND",
                 "CMAKE_POLICY_DEFAULT_CMP0091": "NEW",
                 "CMAKE_BUILD_TYPE": "Debug"
             },
-            "toolchainFile": "D:\\3D_Viewer\\cmake-build-debug\\conan\\build\\Debug\\generators\\conan_toolchain.cmake",
-            "binaryDir": "D:\\3D_Viewer\\cmake-build-debug\\conan\\build\\Debug"
+            "toolchainFile": "C:\\3D_Viewer\\cmake-build-debug\\conan\\build\\Debug\\generators\\conan_toolchain.cmake",
+            "binaryDir": "C:\\3D_Viewer\\cmake-build-debug\\conan\\build\\Debug"
         }
     ],
     "buildPresets": [

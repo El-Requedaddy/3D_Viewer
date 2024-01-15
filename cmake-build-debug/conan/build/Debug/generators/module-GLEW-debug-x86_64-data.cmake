@@ -10,7 +10,7 @@ set(opengl_system_FIND_MODE "NO_MODULE")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(glew_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/glewe2108c4c4b8ea/p")
+set(glew_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/glewd04f5c945cc35/p")
 set(glew_BUILD_MODULES_PATHS_DEBUG )
 
 

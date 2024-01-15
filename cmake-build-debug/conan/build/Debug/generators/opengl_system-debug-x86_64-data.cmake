@@ -6,7 +6,7 @@ set(opengl_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(opengl_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/openg64faf4cf4ac21/p")
+set(opengl_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/openg64faf4cf4ac21/p")
 set(opengl_BUILD_MODULES_PATHS_DEBUG )
 
 

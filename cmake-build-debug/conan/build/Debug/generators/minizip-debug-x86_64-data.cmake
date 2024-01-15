@@ -9,7 +9,7 @@ set(ZLIB_FIND_MODE "NO_MODULE")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(minizip_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/miniz44b0629ec0041/p")
+set(minizip_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/minizac3c52884bbc4/p")
 set(minizip_BUILD_MODULES_PATHS_DEBUG )
 
 

@@ -6,7 +6,7 @@ set(bzip2_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(bzip2_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/bzip2e0b66714e23c1/p")
+set(bzip2_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/bzip2104f6e66968ae/p")
 set(bzip2_BUILD_MODULES_PATHS_DEBUG "${bzip2_PACKAGE_FOLDER_DEBUG}/lib/cmake/conan-official-bzip2-variables.cmake")
 
 

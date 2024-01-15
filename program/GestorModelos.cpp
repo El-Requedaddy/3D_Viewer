@@ -15,7 +15,7 @@ void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, 
         }
         cargarTextura(rutaTextura);
     }
-    if (!rutaNormal.empty()) {
+    if (!rutaNormal.empty()) { // Miramos si hay que cargar una textura de mapeado normal, en caso de ser necesario se carga y prepara
         modelo->setIdTexturaNormal(this->idTexturaModelos);
         cargarTextura(rutaNormal);
     }
@@ -23,7 +23,7 @@ void PAG::GestorModelos::creaModelo(const char *path, glm::mat4 matrizModelado, 
 }
 
 PAG::GestorModelos::GestorModelos() {
-    this->idTexturaModelos = 1;
+    this->idTexturaModelos = 1; // Se empieza con ID a 1
 }
 
 PAG::GestorModelos::~GestorModelos() {
@@ -31,10 +31,17 @@ PAG::GestorModelos::~GestorModelos() {
     // Recorremos los modelos para obtener las texturas a liberar y las liberamos
     glBindVertexArray(0);
     GLuint id;
+    GLuint idNormal;
     for (int i = 0; i < modelosEscena.size(); i++) {
         for (int j = 0; j < modelosEscena[i]->getNumeroMallas(); j++) {
-            id = modelosEscena[i]->getIdTextura();
-            glDeleteTextures(1, &id);
+            if (modelosEscena[i]->getIdTextura() != 0) {
+                id = modelosEscena[i]->getIdTextura();
+                glDeleteTextures(1, &id);
+            }
+            if (modelosEscena[i]->getIdTexturaNormal() != 0) {
+                idNormal = modelosEscena[i]->getIdTexturaNormal();
+                glDeleteTextures(1, &id);
+            }
             glDeleteBuffers(1, modelosEscena[i]->getMallaModelo(j).getVao());
             glDeleteVertexArrays(1, modelosEscena[i]->getMallaModelo(j).getVao());
         }

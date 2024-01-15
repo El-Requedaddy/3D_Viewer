@@ -6,7 +6,7 @@ set(clipper_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(clipper_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/clippf5e28f8e851d6/p")
+set(clipper_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/clipp5f92adfa1519a/p")
 set(clipper_BUILD_MODULES_PATHS_DEBUG )
 
 

@@ -21,8 +21,6 @@ endif()
 if(NOT TARGET pugixml::static)
     add_library(pugixml::static INTERFACE IMPORTED)
     set_property(TARGET pugixml::static PROPERTY INTERFACE_LINK_LIBRARIES pugixml::pugixml)
-else()
-    message(WARNING "Target name 'pugixml::static' already exists.")
 endif()
 # Load the debug and release library finders
 get_filename_component(_DIR "${CMAKE_CURRENT_LIST_FILE}" PATH)

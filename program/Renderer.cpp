@@ -248,6 +248,31 @@ void PAG::Renderer::dibujadoModelos() {
                     unsigned int matrizTraspuetaInversaUniform = shader->getUniform ( "matrizMVit" );
                     glm::mat4 matrizMVit = glm::transpose(glm::inverse(matrizModeladoVision)); // Traspuesta de la inversa de la matriz de modelado-vision
                     glUniformMatrix4fv ( matrizTraspuetaInversaUniform, 1, GL_FALSE, glm::value_ptr ( matrizMVit ) );
+                } else if (lucesEscena[j]->getTipoLuz() == TipoLuz::SPOT) {
+                    unsigned int posicionUniform = shader->getUniform ( "posicion" );
+                    unsigned int direccionUniform = shader->getUniform ( "direccion" );
+                    unsigned int IdUniform = shader->getUniform ( "Id" );
+                    unsigned int IsUniform = shader->getUniform ( "Is" );
+                    unsigned int luzDirUniform = shader->getUniform ("luzDir" ); // Vertex para el normal mapping
+                    unsigned int luzPosUniform = shader->getUniform ("luzPos" ); // Vertex para el normal mapping
+
+                    // Vinculamos las uniform de las luces
+                    glm::vec3 direccion = glm::vec3((camara->getMatrizVision()) * glm::vec4(lucesEscena[j]->getDireccion(), 1.0));
+                    glm::vec3 posicion = glm::vec3((camara->getMatrizVision()) * glm::vec4(lucesEscena[j]->getPosicion(), 1.0));
+                    glm::vec3 direccionFragmento = glm::normalize(direccion);
+                    direccion = glm::normalize(direccion);
+                    glm::vec3 posicionId = lucesEscena[j]->getId ();
+                    glm::vec3 posicionIS = lucesEscena[j]->getIs ();
+                    glUniform3fv ( posicionUniform, 1, glm::value_ptr ( posicion ) );
+                    glUniform3fv (luzDirUniform, 1, glm::value_ptr (direccion ) );
+                    glUniform3fv (luzPosUniform, 1, glm::value_ptr (posicion ) );
+                    glUniform3fv (direccionUniform, 1, glm::value_ptr (direccionFragmento ) );
+                    glUniform3fv ( IdUniform, 1, glm::value_ptr ( lucesEscena[j]->getId () ) );
+                    glUniform3fv ( IsUniform, 1, glm::value_ptr ( lucesEscena[j]->getIs () ) );
+
+                    unsigned int matrizTraspuetaInversaUniform = shader->getUniform ( "matrizMVit" );
+                    glm::mat4 matrizMVit = glm::transpose(glm::inverse(matrizModeladoVision)); // Traspuesta de la inversa de la matriz de modelado-vision
+                    glUniformMatrix4fv ( matrizTraspuetaInversaUniform, 1, GL_FALSE, glm::value_ptr ( matrizMVit ) );
                 }
 
 
@@ -479,6 +504,9 @@ void PAG::Renderer::inicializarShaders() {
     shaderPuntual->creaShaderProgram("pag03-vs-luzPuntual.glsl", "pag03-fs-puntualLightShader.glsl");
     shaderDireccional = new ShaderHandler();
     shaderDireccional->creaShaderProgram("pag03-vs-luzDireccional.glsl", "pag03-fs-directionalLightShader.glsl");
+    /*
+    shaderSpot = new ShaderHandler();
+    shaderSpot->creaShaderProgram("pag03-vs-luzSpot.glsl", "pag03-fs-spotLightShader.glsl");*/
 }
 
 void PAG::Renderer::crearLuzPuntual(glm::vec3 colorDifuso, glm::vec3 colorEspecular, glm::vec3 posicion) {

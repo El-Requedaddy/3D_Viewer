@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="3D_Viewer"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake-build-debug\;CMake Files\cmake-build-debug\conan\;CMake Files\cmake-build-debug\conan\build\;CMake Files\cmake-build-debug\conan\build\Debug\;CMake Files\cmake-build-debug\conan\build\Debug\generators\;CMake Files\..\;CMake Files\..\Users\;CMake Files\..\Users\Requedaddy\;CMake Files\..\Users\Requedaddy\.conan2\;CMake Files\..\Users\Requedaddy\.conan2\p\;CMake Files\..\Users\Requedaddy\.conan2\p\b\;CMake Files\..\Users\Requedaddy\.conan2\p\b\bzip2104f6e66968ae\;CMake Files\..\Users\Requedaddy\.conan2\p\b\bzip2104f6e66968ae\p\;CMake Files\..\Users\Requedaddy\.conan2\p\b\bzip2104f6e66968ae\p\lib\;CMake Files\..\Users\Requedaddy\.conan2\p\b\bzip2104f6e66968ae\p\lib\cmake\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/3D_Viewer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3D_Viewer">
+				<Option output="C:/3D_Viewer/cmake-build-debug/3D_Viewer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/3D_Viewer/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGLEW_STATIC"/>
+					<Add option="-DHAVE_BZIP2"/>
+					<Add option="-DOPENDDL_STATIC_LIBARY"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/glfwcb4fc5973ece6/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/glewd04f5c945cc35/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/glmdf97922a12435/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/assima06af829737fa/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/imgui8546bfb0bd167/p/include"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 3D_Viewer"/>
+					<CompileFile command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="3D_Viewer/fast">
+				<Option output="C:/3D_Viewer/cmake-build-debug/3D_Viewer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/3D_Viewer/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add option="-DGLEW_STATIC"/>
+					<Add option="-DHAVE_BZIP2"/>
+					<Add option="-DOPENDDL_STATIC_LIBARY"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/glfwcb4fc5973ece6/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/glewd04f5c945cc35/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/glmdf97922a12435/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/assima06af829737fa/p/include"/>
+					<Add directory="C:/Users/Requedaddy/.conan2/p/b/imgui8546bfb0bd167/p/include"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/backward"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../include"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/include-fixed"/>
+					<Add directory="C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/mingw/bin/../lib/gcc/x86_64-w64-mingw32/13.1.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 3D_Viewer/fast"/>
+					<CompileFile command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package">
+				<Option working_dir="C:/3D_Viewer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 package"/>
+					<CompileFile command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="package_source">
+				<Option working_dir="C:/3D_Viewer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 package_source"/>
+					<CompileFile command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/3D_Viewer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/3D_Viewer/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/Users/REQUED~1/AppData/Local/JETBRA~1/CLION2~1.2/bin/mingw/bin/mingw32-make.exe -f &quot;C:/3D_Viewer/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/3D_Viewer/program/Camara.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Camara.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Estructuras.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/EstructurasLuces.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/FileLoader.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/FileLoader.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/GestorModelos.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/GestorModelos.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Interfaz/imgui_impl_glfw.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Interfaz/imgui_impl_glfw.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Interfaz/imgui_impl_opengl3.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Interfaz/imgui_impl_opengl3.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Interfaz/imgui_impl_opengl3_loader.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Luz.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Luz.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/MallaModelo.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/MallaModelo.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Modelos.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Modelos.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Renderer.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/Renderer.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/ShaderHandler.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/ShaderHandler.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/lodepng.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/lodepng.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/main.cpp">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/program/singleton_template.h">
+			<Option target="3D_Viewer"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/conan_provider.cmake">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/conanfile.py">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/BZip2-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/BZip2-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/BZip2Config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/BZip2ConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/BZip2Targets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/RapidJSON-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/RapidJSON-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/RapidJSONConfig.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/RapidJSONConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/RapidJSONTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/ZLIB-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/ZLIB-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/ZLIBConfig.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/ZLIBConfigVersion.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/ZLIBTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/assimp-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/assimp-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/assimp-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/assimp-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/assimpTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/clipper-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/clipper-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/clipper-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/clipper-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/clipperTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/cmakedeps_macros.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/draco-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/draco-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/draco-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/draco-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/dracoTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glew-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glew-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glew-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glew-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glewTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glfw3-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glfw3-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glfw3-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glfw3-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glfw3Targets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glm-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glm-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glm-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glm-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glmTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glu-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glu-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glu-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/glu-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/gluTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/imgui-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/imgui-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/imgui-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/imgui-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/imguiTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/minizip-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/minizip-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/minizip-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/minizip-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/minizipTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/openddlparser-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/openddlparser-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/openddlparser-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/openddlparser-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/openddlparserTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/opengl_system-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/opengl_system-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/opengl_system-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/opengl_system-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/opengl_systemTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/poly2tri-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/poly2tri-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/poly2tri-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/poly2tri-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/poly2triTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/pugixml-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/pugixml-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/pugixml-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/pugixml-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/pugixmlTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/zip-Target-debug.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/zip-config-version.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/zip-config.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/zip-debug-x86_64-data.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/cmake-build-debug/conan/build/Debug/generators/zipTargets.cmake">
+			<Option virtualFolder="CMake Files\cmake-build-debug\conan\build\Debug\generators\"/>
+		</Unit>
+		<Unit filename="C:/3D_Viewer/../Users/Requedaddy/.conan2/p/b/bzip2104f6e66968ae/p/lib/cmake/conan-official-bzip2-variables.cmake">
+			<Option virtualFolder="CMake Files\..\Users\Requedaddy\.conan2\p\b\bzip2104f6e66968ae\p\lib\cmake\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

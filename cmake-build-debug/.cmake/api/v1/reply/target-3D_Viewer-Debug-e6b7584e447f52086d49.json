@@ -33,7 +33,7 @@
 			"cmake-build-debug/conan/build/Debug/generators/opengl_system-Target-debug.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/opengl_systemTargets.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/opengl_system-config.cmake",
-			"C:/Program Files/JetBrains/CLion 2023.2.1/bin/cmake/win/x64/share/cmake-3.27/Modules/CMakeFindDependencyMacro.cmake",
+			"C:/Users/Requedaddy/AppData/Local/JetBrains/CLion 2023.2.2/bin/cmake/win/x64/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/glu-Target-debug.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/gluTargets.cmake",
 			"cmake-build-debug/conan/build/Debug/generators/glu-config.cmake",
@@ -471,7 +471,7 @@
 			{
 				"command" : 3,
 				"file" : 25,
-				"line" : 32,
+				"line" : 30,
 				"parent" : 73
 			},
 			{
@@ -850,10 +850,6 @@
 				{
 					"backtrace" : 4,
 					"define" : "OPENDDL_STATIC_LIBARY"
-				},
-				{
-					"backtrace" : 4,
-					"define" : "STB_TEXTEDIT_KEYTYPE=unsigned"
 				}
 			],
 			"includes" : 
@@ -861,27 +857,27 @@
 				{
 					"backtrace" : 2,
 					"isSystem" : true,
-					"path" : "C:/Users/carlo/.conan2/p/b/glfw15951b9a4e9a5/p/include"
+					"path" : "C:/Users/Requedaddy/.conan2/p/b/glfwcb4fc5973ece6/p/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "C:/Users/carlo/.conan2/p/b/glewe2108c4c4b8ea/p/include"
+					"path" : "C:/Users/Requedaddy/.conan2/p/b/glewd04f5c945cc35/p/include"
 				},
 				{
 					"backtrace" : 140,
 					"isSystem" : true,
-					"path" : "C:/Users/carlo/.conan2/p/glmb8583f8d3b716/p/include"
+					"path" : "C:/Users/Requedaddy/.conan2/p/glmdf97922a12435/p/include"
 				},
 				{
 					"backtrace" : 4,
 					"isSystem" : true,
-					"path" : "C:/Users/carlo/.conan2/p/b/assim1e0b242651fb1/p/include"
+					"path" : "C:/Users/Requedaddy/.conan2/p/b/assima06af829737fa/p/include"
 				},
 				{
 					"backtrace" : 5,
 					"isSystem" : true,
-					"path" : "C:/Users/carlo/.conan2/p/b/imgui41f8f659dc338/p/include"
+					"path" : "C:/Users/Requedaddy/.conan2/p/b/imgui8546bfb0bd167/p/include"
 				}
 			],
 			"language" : "CXX",
@@ -925,77 +921,77 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\glfw15951b9a4e9a5\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\glfwcb4fc5973ece6\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\glewe2108c4c4b8ea\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\glewd04f5c945cc35\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\assim1e0b242651fb1\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\assima06af829737fa\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\miniz44b0629ec0041\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\minizac3c52884bbc4\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\bzip2e0b66714e23c1\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\bzip2104f6e66968ae\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\zlib75ffd3f86e5ba\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\zlib91dfc2309db4e\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\pugixb5f14d9ea4300\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\pugix9c9b0266e59f7\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\kuba-282a1652f7463\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\kuba-2f67d72086299\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\poly278e341adf315a\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\poly242f374bf282e1\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\rapid4cabb31a09329\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\rapid4cabb31a09329\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\dracoe959de8e6ac3f\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\draco0ca26b2bc0d20\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\clippf5e28f8e851d6\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\clipp5f92adfa1519a\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 4,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\opendd1ad6de6350a4\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\opend2d652052fa042\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 5,
-				"fragment" : "-LC:\\Users\\carlo\\.conan2\\p\\b\\imgui41f8f659dc338\\p\\lib",
+				"fragment" : "-LC:\\Users\\Requedaddy\\.conan2\\p\\b\\imgui8546bfb0bd167\\p\\lib",
 				"role" : "libraryPath"
 			},
 			{
 				"backtrace" : 13,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\glfw15951b9a4e9a5\\p\\lib\\libglfw3.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\glfwcb4fc5973ece6\\p\\lib\\libglfw3.a",
 				"role" : "libraries"
 			},
 			{
@@ -1005,7 +1001,7 @@
 			},
 			{
 				"backtrace" : 22,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\glewe2108c4c4b8ea\\p\\lib\\libglew32d.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\glewd04f5c945cc35\\p\\lib\\libglew32d.a",
 				"role" : "libraries"
 			},
 			{
@@ -1020,7 +1016,7 @@
 			},
 			{
 				"backtrace" : 48,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\assim1e0b242651fb1\\p\\lib\\libassimpd.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\assima06af829737fa\\p\\lib\\libassimpd.a",
 				"role" : "libraries"
 			},
 			{
@@ -1030,52 +1026,52 @@
 			},
 			{
 				"backtrace" : 58,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\miniz44b0629ec0041\\p\\lib\\libminizip.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\minizac3c52884bbc4\\p\\lib\\libminizip.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 67,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\bzip2e0b66714e23c1\\p\\lib\\libbz2.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\bzip2104f6e66968ae\\p\\lib\\libbz2.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 76,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\pugixb5f14d9ea4300\\p\\lib\\libpugixml.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\pugix9c9b0266e59f7\\p\\lib\\libpugixml.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 85,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\kuba-282a1652f7463\\p\\lib\\libzip.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\kuba-2f67d72086299\\p\\lib\\libzip.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 94,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\poly278e341adf315a\\p\\lib\\libpoly2tri.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\poly242f374bf282e1\\p\\lib\\libpoly2tri.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 103,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\zlib75ffd3f86e5ba\\p\\lib\\libz.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\zlib91dfc2309db4e\\p\\lib\\libz.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 112,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\dracoe959de8e6ac3f\\p\\lib\\libdraco.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\draco0ca26b2bc0d20\\p\\lib\\libdraco.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 121,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\clippf5e28f8e851d6\\p\\lib\\libpolyclipping.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\clipp5f92adfa1519a\\p\\lib\\libpolyclipping.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 130,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\opendd1ad6de6350a4\\p\\lib\\libopenddlparser.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\opend2d652052fa042\\p\\lib\\libopenddlparser.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 138,
-				"fragment" : "C:\\Users\\carlo\\.conan2\\p\\b\\imgui41f8f659dc338\\p\\lib\\libimgui.a",
+				"fragment" : "C:\\Users\\Requedaddy\\.conan2\\p\\b\\imgui8546bfb0bd167\\p\\lib\\libimgui.a",
 				"role" : "libraries"
 			},
 			{

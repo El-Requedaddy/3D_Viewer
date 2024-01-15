@@ -6,7 +6,7 @@ set(zlib_FIND_DEPENDENCY_NAMES "")
 
 ########### VARIABLES #######################################################################
 #############################################################################################
-set(zlib_PACKAGE_FOLDER_DEBUG "C:/Users/carlo/.conan2/p/b/zlib75ffd3f86e5ba/p")
+set(zlib_PACKAGE_FOLDER_DEBUG "C:/Users/Requedaddy/.conan2/p/b/zlib91dfc2309db4e/p")
 set(zlib_BUILD_MODULES_PATHS_DEBUG )
 
 

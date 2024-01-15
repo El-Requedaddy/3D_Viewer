@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "3D_Viewer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-3D_Viewer-Debug-741a2ffd20f88af11922.json",
+					"jsonFile" : "target-3D_Viewer-Debug-e6b7584e447f52086d49.json",
 					"name" : "3D_Viewer",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "D:/3D_Viewer/cmake-build-debug",
-		"source" : "D:/3D_Viewer"
+		"build" : "C:/3D_Viewer/cmake-build-debug",
+		"source" : "C:/3D_Viewer"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 6
+		"minor" : 5
 	}
 }
